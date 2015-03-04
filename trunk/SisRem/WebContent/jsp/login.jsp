@@ -37,8 +37,6 @@ body {
 		<a4j:loadScript src="../js/script.js" />
 		<a4j:form id="form">
 			<rich:panel>
-					<h:outputText value="ESTE É UM TESTE:" />
-	
 				<rich:messages layout="list" errorLabelClass="errorLabel"
 					style="top:auto;" infoLabelClass="infoLabel">
 					<f:facet name="infoMarker">
