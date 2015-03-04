@@ -1,5 +1,7 @@
 *{
 	font-family:"Open Sans", Helvetica, Arial, sans-serif;
+	margin:auto;
+	padding:auto;
 }
 
 html{
@@ -8,8 +10,9 @@ html{
 
 body {
 	background-repeat: no-repeat;
-	background-position: 150px 0;
 	background-color:#DDE9CD;
+
+	
 }
 
 .rich-panel-header {
@@ -24,10 +27,10 @@ body {
 }
 
 .rich-panel{
-	width:960px;
+	width:400px;
 	font-size: 15px;
-	background:#fff url(../images/topo.png) 40px 18px no-repeat;
-	padding:100px 2.857142857rem;
+	background:#fff; /*url(../images/topo.png) no-repeat;*/
+	padding:50px 2.857142857rem;
 	margin-top:3.428571429rem;
 	border-radius:20px;
 	border:none;
