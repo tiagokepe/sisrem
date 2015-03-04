@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="PontoEletronico">
+    <wb-module deploy-name="SisRem">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="PontoEletronico"/>
-        <property name="java-output-path" value="/PontoEletronico/build/classes"/>
+        <property name="context-root" value="SisRem"/>
+        <property name="java-output-path" value="/SisRem/build/classes"/>
     </wb-module>
 </project-modules>
