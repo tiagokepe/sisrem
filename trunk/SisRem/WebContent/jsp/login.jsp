@@ -35,9 +35,9 @@
 					</rich:messages>
 					
 					
-					<h:outputText value="Por favor entre com usuario do SIPAC:" />
+					<h:outputText value="Usuário SIPAC:" />
 					<h:inputText value="#{usuarioController.usuario.login}" required="true" requiredMessage="Campo usuário obrigatório!" />
-					<h:outputText value="Por favor entre com sua senha:" />
+					<h:outputText value="Senha:" />
 					<h:inputSecret value="#{usuarioController.usuario.senha}"
 						required="true" requiredMessage="Senha é obrigatório!"></h:inputSecret>
 					</h:panelGrid>
