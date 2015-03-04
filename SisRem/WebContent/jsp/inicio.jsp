@@ -46,8 +46,7 @@ body {
 			<rich:panel>
 
 				<h:outputText
-					value="Prezado (a) colega, estamos realizando uma Pesquisa de Clima Organizacional do IFPR." />
-				<br />
+					value="#{usuarioController.usuarioAutenticada.nome}" />
 				<br />
 				<h:outputText
 					value="Nosso objetivo é obter informações mais detalhadas e específicas sobre o que pensam os servidores docentes e administrativos em assuntos como: relacionamento interpessoal, ética, liderança, comunicação, gestão democrática entre outros." />

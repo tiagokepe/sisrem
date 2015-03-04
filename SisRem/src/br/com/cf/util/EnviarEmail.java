@@ -53,14 +53,14 @@ public class EnviarEmail {
 		conteudoDoEmail += "\n\n Sua senha de acesso é :" + usuario.getSenha();
 		conteudoDoEmail += "\n\n Por favor não responda esse e-mail. ";
 
-		try {
-			@SuppressWarnings("unused")
-			EnviarEmail enviar = new EnviarEmail(remetente, usuario.getEmail(),
-					assunto, smtpHost, porta, remetente, senha, conteudoDoEmail);
-			System.out.println(usuario.getEmail() + " - SUCESSO!");
-		} catch (Exception e) {
-			System.out.println(usuario.getEmail() + " - FALHA!");
-		}
+//		try {
+//			@SuppressWarnings("unused")
+//			EnviarEmail enviar = new EnviarEmail(remetente, usuario.getEmail(),
+//					assunto, smtpHost, porta, remetente, senha, conteudoDoEmail);
+//			System.out.println(usuario.getEmail() + " - SUCESSO!");
+//		} catch (Exception e) {
+//			System.out.println(usuario.getEmail() + " - FALHA!");
+//		}
 	}
 
 	@SuppressWarnings("static-access")
