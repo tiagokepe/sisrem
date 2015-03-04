@@ -24,7 +24,6 @@
 		<property name="hibernate.cache.use_second_level_cache">false</property>
 		
 		<mapping resource="enquete.hbm.xml" />
-		<mapping resource="usuario.hbm.xml" />
 		
 	</session-factory>
 </hibernate-configuration>
