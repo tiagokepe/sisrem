@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="br.com.cf.entity.Enquete" table="enquete">
+		<id name="codigo" column="enq_cod">
+			<generator class="increment"></generator>
+		</id>
+		<property name="pergunta1" column="pergunta1" />
+		<property name="pergunta1Text" column="pergunta1Text" />
+		<property name="pergunta2Text" column="pergunta2Text" />
+		<property name="pergunta3" column="pergunta3" />
+		<property name="pergunta3Text" column="pergunta3Text" />
+		<property name="pergunta4" column="pergunta4" />
+		<property name="pergunta5" column="pergunta5" />
+		<property name="pergunta6" column="pergunta6" />
+		<property name="pergunta7" column="pergunta7" />
+		<property name="pergunta7Text" column="pergunta7Text" />
+		<property name="pergunta8" column="pergunta8" />
+		<property name="pergunta9" column="pergunta9" />
+		<property name="pergunta9Text" column="pergunta9Text" />
+		<property name="pergunta10" column="pergunta10" />
+		<property name="pergunta10Text" column="pergunta10Text" />
+		<property name="pergunta11Text" column="pergunta11Text" />
+		<property name="pergunta12" column="pergunta12" />
+		<property name="pergunta13A" column="pergunta13A" />
+		<property name="pergunta13B" column="pergunta13B" />
+		<property name="pergunta13C" column="pergunta13C" />
+		<property name="pergunta13D" column="pergunta13D" />
+		<property name="pergunta13E" column="pergunta13E" />
+		<property name="pergunta13F" column="pergunta13F" />
+		<property name="pergunta13G" column="pergunta13G" />
+		<property name="pergunta13H" column="pergunta13H" />
+		<property name="pergunta13I" column="pergunta13I" />
+		<property name="pergunta13J" column="pergunta13J" />
+		<property name="pergunta13Text" column="pergunta13Text" />
+		<property name="pergunta14" column="pergunta14" />
+		<property name="pergunta15" column="pergunta15" />
+		<property name="pergunta16" column="pergunta16" />
+		<property name="pergunta17" column="pergunta17" />
+		<property name="pergunta18" column="pergunta18" />
+		<property name="pergunta19" column="pergunta19" />
+		<property name="pergunta20" column="pergunta20" />
+		<property name="pergunta21" column="pergunta21" />
+		<property name="pergunta22Text" column="pergunta22Text" />
+		<property name="pergunta23A" column="pergunta23A" />
+		<property name="pergunta23B" column="pergunta23B" />
+		<property name="pergunta23C" column="pergunta23C" />
+		<property name="pergunta23D" column="pergunta23D" />
+		<property name="pergunta23E" column="pergunta23E" />
+		<property name="pergunta23F" column="pergunta23F" />
+		<property name="pergunta23G" column="pergunta23G" />
+		<property name="pergunta23H" column="pergunta23H" />
+		<property name="pergunta23I" column="pergunta23I" />
+		<property name="pergunta23J" column="pergunta23J" />
+		<property name="pergunta23Text" column="pergunta23Text" />
+		<property name="pergunta24Text" column="pergunta24Text" />
+		<many-to-one name="usuario" class="br.com.cf.entity.Usuario"
+			column="usu_cod" lazy="false" />
+	</class>
+</hibernate-mapping>
