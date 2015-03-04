@@ -11,62 +11,54 @@
 <link rel="StyleSheet" type="text/css" href="../css/messages-style.css"
 	media="screen" />
 </head>
-<style type="text/css">
-body {
-	background-position: 250px 0;
-	background-color: #DDE9CD;
-}
 
-.rich-panel {
-	width: 1300px;
-	font-size: 15px;
-	background: #fff url(../images/topo.png) 40px 18px no-repeat;
-	padding: 100px 2.857142857rem;
-	margin-top: 3.428571429rem;
-	border-radius: 20px;
-	border: none;
-	box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
-}
-</style>
 
 <body>
 	<f:view>
 		<center>
+	
+				<a4j:loadScript src="../js/script.js" />
+			
 			<a4j:loadScript src="../js/script.js" />
+			<a4j:form id="form">
+				<rich:panel>
+					<h:panelGrid columns="1">
+					<h:outputText value="SisRem" styleClass="negrito" style="font-size:20px"/>
+					<rich:messages layout="list" errorLabelClass="errorLabel"
+						style="top:auto;" infoLabelClass="infoLabel">
+						<f:facet name="infoMarker">
+							<h:graphicImage value="../images/passed.gif" />
+						</f:facet>
+						<f:facet name="errorMarker">
+							<h:graphicImage value="../images/error.gif" />
+						</f:facet>
+					</rich:messages>
+					
+					
+					<h:outputText value="Por favor entre com usuario do SIPAC:" />
+					<h:inputText value="#{usuarioController.usuario.login}" required="true" requiredMessage="Campo usuário obrigatório!" />
+					<h:outputText value="Por favor entre com sua senha:" />
+					<h:inputSecret value="#{usuarioController.usuario.senha}"
+						required="true" requiredMessage="Senha é obrigatório!"></h:inputSecret>
+					</h:panelGrid>
+					<br/>
+					<a4j:commandButton value="Entrar"
+						action="#{usuarioController.login}" reRender="form, messages">
+					</a4j:commandButton>
+					<br/><br/>
+					<h:outputLink value="https://sigadmin.ifpr.edu.br/admin/auto_cadastro/form.jsf">
+					  <f:verbatim>Clique aqui caso não possua acesso</f:verbatim>
+					</h:outputLink>
+					<br /><br/>
+					<h:outputText
+						value="Por favor utilize os navegadores Firefox ou Chrome." />
+					<center><br /><br/>
+						<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
+					</center>
+				</rich:panel>
+	
+			</a4j:form>
 		</center>
-		<a4j:loadScript src="../js/script.js" />
-		<a4j:form id="form">
-			<rich:panel>
-				<rich:messages layout="list" errorLabelClass="errorLabel"
-					style="top:auto;" infoLabelClass="infoLabel">
-					<f:facet name="infoMarker">
-						<h:graphicImage value="../images/passed.gif" />
-					</f:facet>
-					<f:facet name="errorMarker">
-						<h:graphicImage value="../images/error.gif" />
-					</f:facet>
-				</rich:messages>
-				
-				<h:panelGrid columns="1">
-
-				<h:outputText value="Por favor entre com usuario do SIPAC:" />
-				<h:inputText value="#{usuarioController.usuario.login}" required="true" requiredMessage="Campo usuário obrigatório!" />
-				<h:outputText value="Por favor entre com sua senha:" />
-				<h:inputSecret value="#{usuarioController.usuario.senha}"
-					required="true" requiredMessage="Senha é obrigatório!"></h:inputSecret>
-				</h:panelGrid>
-				<a4j:commandButton value="Entrar"
-					action="#{usuarioController.login}" reRender="form, messages">
-				</a4j:commandButton>
-				<br />
-				<h:outputText
-					value="Por favor utilize os navegadores Firefox ou Chrome." />
-				<center>
-					<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
-				</center>
-			</rich:panel>
-
-		</a4j:form>
 	</f:view>
 </body>
 </html>
