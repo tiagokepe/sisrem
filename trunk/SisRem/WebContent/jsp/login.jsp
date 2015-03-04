@@ -47,11 +47,14 @@ body {
 					</f:facet>
 				</rich:messages>
 				
+				<h:panelGrid columns="1">
+
+				<h:outputText value="Por favor entre com usuario do SIPAC:" />
+				<h:inputText value="#{usuarioController.usuario.login}" required="true" requiredMessage="Campo usuário obrigatório!" />
 				<h:outputText value="Por favor entre com sua senha:" />
-				<br />
 				<h:inputSecret value="#{usuarioController.usuario.senha}"
 					required="true" requiredMessage="Senha é obrigatório!"></h:inputSecret>
-				<br />
+				</h:panelGrid>
 				<a4j:commandButton value="Entrar"
 					action="#{usuarioController.login}" reRender="form, messages">
 				</a4j:commandButton>

@@ -1,12 +1,12 @@
 package br.com.cf.dao;
 
 import java.security.NoSuchAlgorithmException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
-
+import br.com.cf.util.Encripty;
 import br.com.cf.entity.Usuario;
-import br.com.cf.util.HibernateUtility;
 
 public class UsuarioDAO extends DAO {
 
@@ -19,15 +19,23 @@ public class UsuarioDAO extends DAO {
 		return instance;
 	}
 
-	public Usuario autentica(Usuario usuario) throws NoSuchAlgorithmException {
-		HibernateUtility.beginTransaction();
-		HibernateUtility.getSession().flush();
-		Criteria c = HibernateUtility.getSession()
-				.createCriteria(Usuario.class);
-		//c.add(Restrictions.eq("email", usuario.getEmail().toLowerCase()));
-		c.add(Restrictions.eq("senha", usuario.getSenha()));
-		HibernateUtility.commitTransaction();
-		return (Usuario) c.uniqueResult();
-	}
+	public Usuario autentica(Usuario usuario) throws NoSuchAlgorithmException,
+			SQLException {
 
+		Usuario u = null;
+		String sql = "SELECT u.login, u.senha, p.nome FROM comum.usuario u INNER JOIN comum.pessoa p ON u.id_pessoa = p.id_pessoa where u.login = '"
+				+ usuario.getLogin().toLowerCase()
+				+ "' "
+				+ " and u.senha ='"
+				+ Encripty.criptografaSenha(usuario.getSenha()) + "';";
+		Statement stm = (Statement) JDBC.getConnection().createStatement();
+		ResultSet rs = stm.executeQuery(sql);
+		while (rs.next()) {
+			u = new Usuario();
+			u.setLogin(rs.getString("login"));
+			u.setSenha(rs.getString("senha"));
+			u.setNome(rs.getString("nome"));
+		}
+		return u;
+	}
 }
