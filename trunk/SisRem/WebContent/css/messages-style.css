@@ -72,6 +72,16 @@ rich-message-label {
 
 input[type="text"] {
 	text-transform: uppercase;
+	padding:5px 10px 5px 10px;
+}
+
+input[type="password"] {
+	padding:5px 10px 5px 10px;
+}
+
+input[type="button"]{
+	padding:5px 10px 5px 10px;
+	border-radius:5px;
 }
 
 select {
