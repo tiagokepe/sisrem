@@ -29,9 +29,9 @@ public class SisRemFilter implements Filter{
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpSession session = request.getSession();
 		
-		String url = request.getRequestURI(); ///((HttpServletRequest)req).getRequestURL().toString();
+		String url = request.getRequestURI();
 		
-		System.out.println("passou pelo filtro: "+url);
+		//System.out.println("passou pelo filtro: "+url);
 
 		if(url.contains("login") || url.contains("css") || url.contains("images") || url.contains("aj4") || (url.contains("js") && !url.contains("jsp"))){
 			chain.doFilter(req, res);
