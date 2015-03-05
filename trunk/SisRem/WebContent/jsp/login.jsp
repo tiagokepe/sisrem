@@ -22,8 +22,9 @@
 			<a4j:loadScript src="../js/script.js" />
 			<a4j:form id="form">
 				<rich:panel>
+					<h:graphicImage value="../images/sisrem-logo.png" />
 					<h:panelGrid columns="1">
-					<h:outputText value="SisRem" styleClass="negrito" style="font-size:20px"/>
+					<h:outputText value="Sistema de Remoção" styleClass="negrito" style="font-size:16px"/>
 					<rich:messages layout="list" errorLabelClass="errorLabel"
 						style="top:auto;" infoLabelClass="infoLabel">
 						<f:facet name="infoMarker">
@@ -34,9 +35,8 @@
 						</f:facet>
 					</rich:messages>
 					
-					
 					<h:outputText value="Usuário SIPAC:" />
-					<h:inputText value="#{usuarioController.usuario.login}" required="true" requiredMessage="Campo usuário obrigatório!" />
+					<h:inputText value="#{usuarioController.usuario.login}" required="true" requiredMessage="Usuário SIPAC é obrigatório!" />
 					<h:outputText value="Senha:" />
 					<h:inputSecret value="#{usuarioController.usuario.senha}"
 						required="true" requiredMessage="Senha é obrigatório!"></h:inputSecret>
