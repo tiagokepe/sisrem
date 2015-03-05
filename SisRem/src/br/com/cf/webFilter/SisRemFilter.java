@@ -26,9 +26,9 @@ public class SisRemFilter implements Filter{
 		
 		String url = request.getRequestURI();
 		
-		//System.out.println("passou pelo filtro: "+url);
+//		System.out.println("passou pelo filtro: "+url);
 
-		if(url.contains("login") || url.contains("css") || url.contains("images") || url.contains("aj4") || (url.contains("js") && !url.contains("jsp"))){
+		if(url.contains("login") || url.contains("css") || url.contains("images") || url.contains("a4j") || (url.contains("js") && !url.contains("jsp"))){
 			chain.doFilter(req, res);
 		} else {
 			if(session.getAttribute("usuarioLogado") == null){
