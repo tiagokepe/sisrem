@@ -44,13 +44,13 @@ public class UsuarioController {
 		usuarioAutenticado = UsuarioDAO.getInstance().autentica(usuario);
 
 		if (usuarioAutenticado != null) {
-			session.setAttribute("Logado", usuarioAutenticado);
+			session.setAttribute("usuarioLogado", usuarioAutenticado);
 			FacesContext.getCurrentInstance().getExternalContext()
 					.redirect("inicio.jsp");
 			usuario = new Usuario();
 			session.setMaxInactiveInterval(-1);
 		} else {
-			session.setAttribute("Logado", null);
+			session.setAttribute("usuarioLogado", null);
 			session.removeAttribute("user");
 			FacesMessage message = new FacesMessage(
 					FacesMessage.SEVERITY_ERROR, "Senha inválida!",
