@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+				<h:outputText
+					value="Bem vindo #{usuarioController.usuarioAutenticada.nome}, Ãšltimo acesso em ..." /><br/><br/>
+				 <rich:toolBar>
+
+	            <rich:dropDownMenu>
+	                <f:facet name="label"> 
+	                    <h:panelGroup>
+	                        <h:outputText value="Processos"/>
+	                    </h:panelGroup>
+	                </f:facet>
+	                <rich:menuItem submitMode="ajax" value="Solicitar RemoÃ§Ã£o"
+	                    action="#{ddmenu.doNew}">
+	                </rich:menuItem>
+	                <rich:menuItem submitMode="ajax" value="Acompanhar Processo"
+	                    action="#{ddmenu.doNew}">
+	                </rich:menuItem>
+	              
+	              
+	            </rich:dropDownMenu>
+	
+	            <rich:dropDownMenu>
+	
+	                <f:facet name="label">
+	                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+	                        style="vertical-align:middle">
+	                        <h:outputText value="Editais" />
+	                    </h:panelGrid>
+	                </f:facet>
+	
+	                <rich:menuItem submitMode="ajax" value="Visualizar Editais"
+	                    action="#{ddmenu.doNew}">
+	                </rich:menuItem>
+	
+	
+	            </rich:dropDownMenu>
+	            <rich:toolBarGroup location="right">
+	             <rich:dropDownMenu>
+	            <f:facet name="label"> 
+	                    <h:panelGroup>
+	                        <h:outputText value="Sair"/>
+	                    </h:panelGroup>
+	                </f:facet>
+	              <rich:menuItem submitMode="ajax" value="Sair"
+	                    action="#{ddmenu.doExit}" />
+	                    </rich:dropDownMenu>
+	            </rich:toolBarGroup>
+	            
+	        </rich:toolBar>
+</ui:composition>	

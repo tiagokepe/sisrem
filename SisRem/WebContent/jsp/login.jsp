@@ -10,6 +10,13 @@
 <title>Instituto Federal do Paraná</title>
 <link rel="StyleSheet" type="text/css" href="../css/messages-style.css"
 	media="screen" />
+<style>
+.rich-panel {
+	width: 400px;
+
+}
+</style>
+
 </head>
 
 
