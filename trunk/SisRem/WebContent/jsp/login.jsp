@@ -22,9 +22,10 @@
 			<a4j:loadScript src="../js/script.js" />
 			<a4j:form id="form">
 				<rich:panel>
-					<h:graphicImage value="../images/sisrem-logo.png" />
+					<h:graphicImage  width="300" value="../images/sisrem-logo.png" /><br/>
+					<h:outputText value="Sistema de Remoção" styleClass="negrito" style="font-size:12px"/>
 					<h:panelGrid columns="1">
-					<h:outputText value="Sistema de Remoção" styleClass="negrito" style="font-size:16px"/>
+					
 					<rich:messages layout="list" errorLabelClass="errorLabel"
 						style="top:auto;" infoLabelClass="infoLabel">
 						<f:facet name="infoMarker">
@@ -33,8 +34,7 @@
 						<f:facet name="errorMarker">
 							<h:graphicImage value="../images/error.gif" />
 						</f:facet>
-					</rich:messages>
-					
+					</rich:messages>	
 					<h:outputText value="Usuário SIPAC:" />
 					<h:inputText value="#{usuarioController.usuario.login}" required="true" requiredMessage="Usuário SIPAC é obrigatório!" />
 					<h:outputText value="Senha:" />
@@ -45,6 +45,7 @@
 					<a4j:commandButton value="Entrar"
 						action="#{usuarioController.login}" reRender="form, messages">
 					</a4j:commandButton>
+				
 					<br/><br/>
 					<h:outputLink value="https://sigadmin.ifpr.edu.br/admin/auto_cadastro/form.jsf">
 					  <f:verbatim>Clique aqui caso não possua acesso</f:verbatim>
