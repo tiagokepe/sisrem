@@ -31,9 +31,10 @@ body {
 
 <body>
 	<f:view>
+	<rich:panel>
 		<center>
 			<a4j:form id="form">
-				<rich:panel>
+				
 					<a4j:status>
 						<f:facet name="start">
 							<h:graphicImage value="../images/ajax-loader.gif" />
@@ -95,8 +96,9 @@ body {
 							<rich:datascroller id="ds"></rich:datascroller>
 						</f:facet>
 					</rich:dataTable>
-				</rich:panel>
-			</a4j:form>
+			
+				</a4j:form>
+			</rich:panel>	
 		</center>
 	</f:view>
 </body>

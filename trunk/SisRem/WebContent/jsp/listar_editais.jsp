@@ -3,8 +3,6 @@
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ taglib uri="http://richfaces.org/a4j" prefix="a4j"%>
 <%@ taglib uri="http://richfaces.org/rich" prefix="rich"%>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,20 +29,75 @@
 		</center>
 		<a4j:loadScript src="../js/script.js" />
 		<a4j:form id="form">
-		
 			
-		<h:outputText value="Editais vigentes:" styleClass="negrito" /><br/><br/>
-		<rich:dataList var="editais" value="Editais" rows="10">
-            <h:outputText value="Edital ..."/><br/>
-            <h:outputText value="Ano: XXXX" styleClass="negrito"></h:outputText>
-            <h:outputText value=" Término: XX/XX/XXXX" styleClass="negrito"></h:outputText>
-        </rich:dataList>
+		
+		<br/>
+				<rich:dataTable value="#{meuPrimeiroDataTable.resultado}" var="item">
+												
+				
+					<rich:column>
+					
+					<f:facet name="header">
+					
+					<h:outputText value="EDITAL" />
+					
+					</f:facet>
+					
+					<h:outputText value="#{item.id}" />
+					
+					</rich:column>
+					
+					<rich:column>
+					
+					<f:facet name="header">
+					
+					<h:outputText value="ANO" />
+					
+					</f:facet>
+					
+					<h:outputText value="#{item.id}" />
+					
+					</rich:column>
+										
+					<rich:column>
+					
+					<f:facet name="header">
+					
+					<h:outputText value="ESTADO" />
+					
+					</f:facet>
+					
+					<h:outputText value="#{item.email}" />
+					
+					</rich:column>
+					
+					
+					<rich:column>
+					
+					<f:facet name="header">
+					
+					<h:outputText value="LINK" />
+							
+					</f:facet>
+					
+					<h:outputText value="#{item.email}" />
+					
+					</rich:column>
+				
+				</rich:dataTable>
+		<br/><br/>	
+		
+		
+		
+		
+		
+		
     
 				
 				<center>
 					<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
 				</center>
-		
+			
 		</a4j:form>
 	</rich:panel>	
 	</f:view>

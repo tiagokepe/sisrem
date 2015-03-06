@@ -5,10 +5,10 @@
 <%@ taglib uri="http://richfaces.org/rich" prefix="rich"%>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<a4j:form>
 
 				<h:outputText
-					value="Bem vindo #{usuarioController.usuarioAutenticada.nome}, Último acesso em ..." /><br/><br/>
+					value="Bem vindo #{usuarioLogado.nome}, Último acesso em ..." /><br/><br/>
 		 	 <rich:toolBar>
 
 	            <rich:dropDownMenu>
@@ -18,10 +18,10 @@
 	                    </h:panelGroup>
 	                </f:facet>
 	                <rich:menuItem submitMode="ajax" value="Solicitar Remoção"
-	                    action="#{ddmenu.doNew}">
+	                    action="#{srController.abrirSolicitarRemocao}">
 	                </rich:menuItem>
 	                <rich:menuItem submitMode="ajax" value="Acompanhar Processo"
-	                    action="#{ddmenu.doNew}">
+	                    action="#{srController.abrirAcompanharProcessos}">
 	                </rich:menuItem>
 	              
 	              
@@ -36,8 +36,8 @@
 	                    </h:panelGrid>
 	                </f:facet>
 	
-	                <rich:menuItem submitMode="ajax" value="Visualizar Editais"
-	                    action="#{ddmenu.doNew}">
+	                <rich:menuItem submitMode="ajax" value="Listar Editais"
+	                    action="#{srController.abrirListarEditais}">
 	                </rich:menuItem>
 	
 	
@@ -50,8 +50,9 @@
 	                    </h:panelGroup>
 	                </f:facet>
 	              <rich:menuItem submitMode="ajax" value="Sair"
-	                    action="#{ddmenu.doExit}" />
+	                    action="#{srController.logout}" />
 	                    </rich:dropDownMenu>
 	            </rich:toolBarGroup>
 	            
 	        </rich:toolBar>
+</a4j:form>
