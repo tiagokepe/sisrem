@@ -19,6 +19,7 @@ public class DuvidaDAO extends DAO {
 		return instance;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Duvida> pesquisar(String consulta) {
 		
 		HibernateUtility.getSession().clear();
