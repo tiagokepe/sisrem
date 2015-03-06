@@ -7,7 +7,6 @@
 		<id name="codigo" column="usu_cod">
 			<generator class="increment"></generator>
 		</id>
-		<property name="email" column="usu_email" />
-		<property name="senha" column="usu_senha" />
+		<property name="login" column="usu_login" />
 	</class>
 </hibernate-mapping>

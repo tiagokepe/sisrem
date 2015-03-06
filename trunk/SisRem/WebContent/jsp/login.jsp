@@ -43,14 +43,14 @@
 						</f:facet>
 					</rich:messages>	
 					<h:outputText value="Usuário SIPAC:" />
-					<h:inputText value="#{usuarioController.usuario.login}" required="true" requiredMessage="Usuário SIPAC é obrigatório!" />
+					<h:inputText value="#{srController.usuario.login}" required="true" requiredMessage="Usuário SIPAC é obrigatório!" />
 					<h:outputText value="Senha:" />
-					<h:inputSecret value="#{usuarioController.usuario.senha}"
+					<h:inputSecret value="#{srController.usuario.senha}"
 						required="true" requiredMessage="Senha é obrigatório!"></h:inputSecret>
 					</h:panelGrid>
 					<br/>
 					<a4j:commandButton value="Entrar"
-						action="#{usuarioController.login}" reRender="form, messages">
+						action="#{srController.login}" reRender="form, messages">
 					</a4j:commandButton>
 				
 					<br/><br/>
