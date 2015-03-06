@@ -4,8 +4,9 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="br.com.cf.entity.Usuario" table="usuario">
-		<id name="codigo" column="usu_cod">
-			<generator class="increment"></generator>
+		<id name="codigo">
+			<column name="usu_cod" not-null="true" />
+			<generator class="identity" />
 		</id>
 		<property name="login" column="usu_login" />
 	</class>

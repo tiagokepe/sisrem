@@ -10,6 +10,7 @@ public class Usuario implements Serializable {
 	private String login;
 	private String senha;
 	private String nome;
+	private boolean admin;
 
 	public Long getCodigo() {
 		return codigo;
@@ -41,6 +42,14 @@ public class Usuario implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 	public static long getSerialversionuid() {

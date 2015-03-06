@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 import br.com.cf.dao.SisRemDAO;
+import br.com.cf.dao.UsuarioDAO;
 import br.com.cf.entity.Usuario;
 
 public class SisRemController {
@@ -35,6 +36,7 @@ public class SisRemController {
 		usuarioAutenticado = SisRemDAO.getInstance().autentica(usuario);
 
 		if (usuarioAutenticado != null) {
+			UsuarioDAO.getInstance().verificaAdmin(usuarioAutenticado);
 			session.setAttribute("usuarioLogado", usuarioAutenticado);
 			FacesContext.getCurrentInstance().getExternalContext()
 					.redirect("inicio.jsp");
