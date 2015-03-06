@@ -1,13 +1,15 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:a4j="http://richfaces.org/a4j"
-      xmlns:rich="http://richfaces.org/rich">
+<%@page import="javax.faces.context.FacesContext"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+<%@ taglib uri="http://richfaces.org/a4j" prefix="a4j"%>
+<%@ taglib uri="http://richfaces.org/rich" prefix="rich"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 				<h:outputText
-					value="Bem vindo #{usuarioController.usuarioAutenticada.nome}, Ãšltimo acesso em ..." /><br/><br/>
-				 <rich:toolBar>
+					value="Bem vindo #{usuarioController.usuarioAutenticada.nome}, �ltimo acesso em ..." /><br/><br/>
+		 	 <rich:toolBar>
 
 	            <rich:dropDownMenu>
 	                <f:facet name="label"> 
@@ -15,7 +17,7 @@
 	                        <h:outputText value="Processos"/>
 	                    </h:panelGroup>
 	                </f:facet>
-	                <rich:menuItem submitMode="ajax" value="Solicitar RemoÃ§Ã£o"
+	                <rich:menuItem submitMode="ajax" value="Solicitar Remo��o"
 	                    action="#{ddmenu.doNew}">
 	                </rich:menuItem>
 	                <rich:menuItem submitMode="ajax" value="Acompanhar Processo"
@@ -53,4 +55,3 @@
 	            </rich:toolBarGroup>
 	            
 	        </rich:toolBar>
-</ui:composition>	
