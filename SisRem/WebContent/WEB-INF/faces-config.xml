@@ -13,4 +13,9 @@ Config 1.1//EN"
 		<managed-bean-class>br.com.cf.controller.UsuarioController</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>srController</managed-bean-name>
+		<managed-bean-class>br.com.cf.controller.SisRemController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 </faces-config>
