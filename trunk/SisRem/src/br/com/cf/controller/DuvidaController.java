@@ -32,9 +32,7 @@ public class DuvidaController {
 	}
 
 	public List<Duvida> pesquisar(String consulta){
-		
-		DuvidaDAO.getInstance().pesquisar(consulta);
-		
-		return DuvidaDAO.getInstance().pesquisar(consulta);
+		listaDuvidas = DuvidaDAO.getInstance().pesquisar(consulta);
+		return listaDuvidas;
 	}
 }
