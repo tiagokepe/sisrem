@@ -19,7 +19,7 @@ public class UsuarioDAO extends DAO {
 	public void verificaAdmin(Usuario u){
 		HibernateUtility.getSession().clear();
 		Query query = HibernateUtility.getSession().createQuery("from Usuario u where u.login = :login");
-		query.setParameter("login", u.getLogin());
+		query.setParameter("login", u.getLogin().toLowerCase());
 		HibernateUtility.commitTransaction();
 		
 		Usuario usuario = (Usuario) query.uniqueResult();
