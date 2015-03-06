@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Instituto Federal do ParanÃ¡</title>
+<title>Instituto Federal do Paraná</title>
 <link rel="StyleSheet" type="text/css" href="../css/messages-style.css"
 	media="screen" />
 </head>
@@ -30,56 +30,7 @@
 		<a4j:loadScript src="../js/script.js" />
 		<a4j:form id="form">
 		<rich:panel>
-		
-		<br/><br/>	
-		<h:outputText
-					value="Bem vindo #{usuarioController.usuarioAutenticada.nome}, Último acesso em ..." /><br/><br/>
-				 <rich:toolBar>
-
-	            <rich:dropDownMenu>
-	                <f:facet name="label"> 
-	                    <h:panelGroup>
-	                        <h:outputText value="Processos"/>
-	                    </h:panelGroup>
-	                </f:facet>
-	                <rich:menuItem submitMode="ajax" value="Solicitar Remoção"
-	                    action="#{ddmenu.doNew}">
-	                </rich:menuItem>
-	                <rich:menuItem submitMode="ajax" value="Acompanhar Processo"
-	                    action="#{ddmenu.doNew}">
-	                </rich:menuItem>
-	              
-	              
-	            </rich:dropDownMenu>
-	
-	            <rich:dropDownMenu>
-	
-	                <f:facet name="label">
-	                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
-	                        style="vertical-align:middle">
-	                        <h:outputText value="Editais" />
-	                    </h:panelGrid>
-	                </f:facet>
-	
-	                <rich:menuItem submitMode="ajax" value="Visualizar Editais"
-	                    action="#{ddmenu.doNew}">
-	                </rich:menuItem>
-	
-	
-	            </rich:dropDownMenu>
-	            <rich:toolBarGroup location="right">
-	             <rich:dropDownMenu>
-	            <f:facet name="label"> 
-	                    <h:panelGroup>
-	                        <h:outputText value="Sair"/>
-	                    </h:panelGroup>
-	                </f:facet>
-	              <rich:menuItem submitMode="ajax" value="Sair"
-	                    action="#{ddmenu.doExit}" />
-	                    </rich:dropDownMenu>
-	            </rich:toolBarGroup>
-	            
-	        </rich:toolBar>
+			<jsp:directive.include file="menu.jsp" />
 		<h:outputText value="Editais vigentes:" styleClass="negrito" /><br/><br/>
 		<rich:dataList var="editais" value="Editais" rows="10">
             <h:outputText value="Edital ..."/><br/>
