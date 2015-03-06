@@ -36,6 +36,7 @@ body {
 	border:none;
 	box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
 	min-height:300px;
+	
 }
 .rich-messages-marker img {
 	padding-right: 7px;

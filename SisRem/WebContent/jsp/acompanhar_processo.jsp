@@ -22,15 +22,41 @@
 	*/
 	%>
 	<f:view>
+	<rich:panel>
+	<jsp:directive.include file="menu.jsp" />
 		<center>
 			<a4j:loadScript src="../js/script.js" />
 		</center>
 		<a4j:loadScript src="../js/script.js" />
 		<a4j:form id="form">
-			<rich:panel>
-		<jsp:directive.include file="menu.jsp" />
+			
+		
 		<br/>
 				<rich:dataTable value="#{meuPrimeiroDataTable.resultado}" var="item">
+				
+					<rich:column>
+					
+					<f:facet name="header">
+					
+					<h:outputText value="PROCESSO" />
+					
+					</f:facet>
+					
+					<h:outputText value="#{item.id}" />
+					
+					</rich:column>
+					
+					<rich:column>
+					
+					<f:facet name="header">
+					
+					<h:outputText value="DATA DE ENTRADA" />
+					
+					</f:facet>
+					
+					<h:outputText value="#{item.id}" />
+					
+					</rich:column>				
 				
 					<rich:column>
 					
@@ -140,8 +166,9 @@
 				<center>
 					<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
 				</center>
-			</rich:panel>
+			
 		</a4j:form>
+	</rich:panel>	
 	</f:view>
 </body>
 </html>
