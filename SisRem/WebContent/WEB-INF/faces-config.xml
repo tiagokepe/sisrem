@@ -14,6 +14,11 @@ Config 1.1//EN"
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
+		<managed-bean-name>duvidaController</managed-bean-name>
+		<managed-bean-class>br.com.cf.controller.DuvidaController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
 		<managed-bean-name>srController</managed-bean-name>
 		<managed-bean-class>br.com.cf.controller.SisRemController</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
