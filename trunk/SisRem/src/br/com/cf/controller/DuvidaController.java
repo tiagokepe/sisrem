@@ -1,5 +1,6 @@
 package br.com.cf.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.cf.dao.DuvidaDAO;
@@ -7,11 +8,15 @@ import br.com.cf.entity.Duvida;
 
 public class DuvidaController {
 	private Duvida duvida;
-	private List<Duvida> listaDuvidas;
+	private List<Duvida> listaDuvidas = new ArrayList<Duvida>();
 
+	@SuppressWarnings("unchecked")
 	public DuvidaController() {
 		if (duvida == null) {
 			duvida = new Duvida();
+		}
+		if(listaDuvidas.size() == 0){
+			listaDuvidas = DuvidaDAO.getInstance().list(Duvida.class);
 		}
 	}
 
@@ -31,8 +36,7 @@ public class DuvidaController {
 		this.duvida = duvida;
 	}
 
-	public List<Duvida> pesquisar(String consulta){
+	public void pesquisar(String consulta){
 		listaDuvidas = DuvidaDAO.getInstance().pesquisar(consulta);
-		return listaDuvidas;
 	}
 }
