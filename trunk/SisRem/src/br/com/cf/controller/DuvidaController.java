@@ -2,6 +2,7 @@ package br.com.cf.controller;
 
 import java.util.List;
 
+import br.com.cf.dao.DuvidaDAO;
 import br.com.cf.entity.Duvida;
 
 public class DuvidaController {
@@ -30,4 +31,10 @@ public class DuvidaController {
 		this.duvida = duvida;
 	}
 
+	public List<Duvida> pesquisar(String consulta){
+		
+		DuvidaDAO.getInstance().pesquisar(consulta);
+		
+		return DuvidaDAO.getInstance().pesquisar(consulta);
+	}
 }
