@@ -1,5 +1,6 @@
 package br.com.cf.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,12 +45,22 @@ public class DuvidaController {
 		listaDuvidas = DuvidaDAO.getInstance().pesquisar(consulta);
 	}
 	
-	public void cadastrar(){
+	public void cadastrar() throws IOException{
 		try {
 			DuvidaDAO.getInstance().save(duvida);
 			FacesContext.getCurrentInstance().addMessage("", new FacesMessage("Cadastro realizado com sucesso!"));
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage("", new FacesMessage(ERRO_OPERACAO));
+		} finally {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("listar_duvidas.jsp");
+		}
+	}
+	
+	public void nova() throws IOException{
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("cad_duvida.jsp");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
