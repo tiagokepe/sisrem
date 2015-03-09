@@ -24,7 +24,6 @@
 	                    action="#{srController.abrirAcompanharProcessos}">
 	                </rich:menuItem>
 	              
-	              
 	            </rich:dropDownMenu>
 	
 	            <rich:dropDownMenu>
@@ -38,6 +37,24 @@
 	
 	                <rich:menuItem submitMode="ajax" value="Listar Editais"
 	                    action="#{srController.abrirListarEditais}">
+	                </rich:menuItem>
+	
+	
+	            </rich:dropDownMenu>
+	            <rich:dropDownMenu rendered="#{usuarioLogado.admin}">
+	
+	                <f:facet name="label">
+	                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+	                        style="vertical-align:middle">
+	                        <h:outputText value="FAQ" />
+	                    </h:panelGrid>
+	                </f:facet>
+	
+	                <rich:menuItem value="Cadastrar"
+	                    action="#{duvidaController.nova}">
+	                </rich:menuItem>
+	                <rich:menuItem value="Listar"
+	                    action="#{duvidaController.listar}">
 	                </rich:menuItem>
 	
 	
