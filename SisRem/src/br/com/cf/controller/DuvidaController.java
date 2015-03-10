@@ -63,4 +63,8 @@ public class DuvidaController {
 			e.printStackTrace();
 		}
 	}
+	
+	public void listar() throws IOException{
+		FacesContext.getCurrentInstance().getExternalContext().redirect("listar_duvidas.jsp");
+	}
 }
