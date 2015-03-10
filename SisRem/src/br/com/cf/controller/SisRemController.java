@@ -57,4 +57,11 @@ public class SisRemController {
 				.getExternalContext().getSessionMap().get("usuarioLogado");
 	}
 
+	public void logout () throws IOException{
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+				.getExternalContext().getSession(false);
+		session.invalidate();
+		FacesContext.getCurrentInstance().getExternalContext().redirect("login.jsp");
+	}
+
 }
