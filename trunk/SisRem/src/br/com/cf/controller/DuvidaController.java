@@ -67,4 +67,5 @@ public class DuvidaController {
 	public void listar() throws IOException{
 		FacesContext.getCurrentInstance().getExternalContext().redirect("listar_duvidas.jsp");
 	}
+	
 }

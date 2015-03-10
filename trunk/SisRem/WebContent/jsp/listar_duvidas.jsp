@@ -26,7 +26,7 @@
 			<jsp:directive.include file="menu.jsp" />
 			<h:outputText value="Dúvidas Frequentes - FAQ"
 				style="font-size: 22px; margin-bottom: 50px"></h:outputText>
-				
+				<h:messages />
 			<h:form>
 				<rich:dataTable value="#{duvidaController.listaDuvidas}" var="duvida"
 					width="1080px" columnClasses="center" rows="15" reRender="ds">
@@ -49,8 +49,8 @@
 						<f:facet name="header">
 							<h:outputText value="Ações" />
 						</f:facet>
-						<h:commandLink value="editar" />
-						<h:commandLink value="excluir" style="margin-left: 10px;" />
+						<h:commandLink title="Editar"><h:graphicImage value="../images/edit.gif" alt="Editar" /></h:commandLink>
+						<h:commandLink title="Excluir" style="margin-left: 10px;"><h:graphicImage value="../images/delete.gif" alt="Excluir" /> </h:commandLink>
 					</rich:column>
 					<f:facet name="footer">
 						<rich:datascroller id="ds"></rich:datascroller>
