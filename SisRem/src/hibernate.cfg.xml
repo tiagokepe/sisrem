@@ -26,6 +26,7 @@
 		
 		<mapping resource="usuario.hbm.xml" />
 		<mapping resource="duvida.hbm.xml" />
+		<mapping resource="campus.hbm.xml" />
 		
 	</session-factory>
 </hibernate-configuration>
