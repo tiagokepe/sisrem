@@ -13,76 +13,95 @@
 </head>
 
 <body>
-	<%/*
-		/*if (FacesContext.getCurrentInstance().getExternalContext()
-				.getSessionMap().get("Logado") == null) {
-			FacesContext.getCurrentInstance().getExternalContext()
-					.redirect("index.jsp");
-		}
-	*/
+	<%
+		/*
+		 /*if (FacesContext.getCurrentInstance().getExternalContext()
+		 .getSessionMap().get("Logado") == null) {
+		 FacesContext.getCurrentInstance().getExternalContext()
+		 .redirect("index.jsp");
+		 }
+		 */
 	%>
 	<f:view>
-	<rich:panel>
-	<jsp:directive.include file="menu.jsp" />
-		<a4j:loadScript src="../js/script.js" />
-		
+		<rich:panel>
+			<jsp:directive.include file="menu.jsp" />
+			<a4j:loadScript src="../js/script.js" />
+
 			<a4j:form id="form">
-				
-					
-					
-					<h:panelGrid columns="1" style="margin-left:0">
-						<h:outputText value="Servidor: #{usuarioLogado.nome}" style="font-weight: bold;" />
-						<h:outputText value="Selecine o Edital:"
-							style="font-weight: bold;" />
-						<h:selectOneMenu value=""
-						required="true"
+
+
+
+				<h:panelGrid columns="2" style="margin-left:0">
+				<h:outputText value="Siape:" />
+				<h:outputText value="#{servidorController.servidor.siape}" />
+				<h:outputText value="Nome Servidor:" />
+				<h:outputText value="#{servidorController.servidor.nome}" />
+				<h:outputText value="Data de Nascimento:" />
+				<h:outputText value="#{servidorController.servidor.dataNascimento}">
+				<f:convertDateTime pattern="dd/MM/yyyy" /> 
+				</h:outputText>
+				<h:outputText value="Unidade Origem:" />
+				<h:outputText value="#{servidorController.servidor.unidade}" />
+				<h:outputText value="Categoria:" />
+				<h:outputText value="#{servidorController.servidor.categoria}" />
+				<h:outputText value="Data de Admissão:" />
+				<h:outputText value="#{servidorController.servidor.dataAdmissao}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+				<h:outputText value="Cargo:" />
+				<h:outputText value="#{servidorController.servidor.cargo}" />
+				<h:outputText value="Celular:" />
+				<h:outputText value="#{servidorController.servidor.celular}" />
+				<h:outputText value="Telefone:" />
+				<h:outputText value="#{servidorController.servidor.telefone}" />
+				<h:outputText value="Email:" />
+				<h:outputText value="#{servidorController.servidor.email}" />
+
+
+					<h:outputText value="Selecione o Edital:"
+						style="font-weight: bold;" />
+
+					<h:selectOneMenu value="" required="true"
 						requiredMessage="Selecione o Edital!">
 						<f:selectItem itemLabel="SELECIONE" itemValue="" />
-						</h:selectOneMenu>	
-						
-						<h:outputText value="Campus Origem:" style="font-weight: bold;" />
-						<h:selectOneMenu value=""
-						required="true">
+					</h:selectOneMenu>
+
+
+					<h:outputText value="Campus Destino:" style="font-weight: bold;" />
+					<h:selectOneMenu value="" required="true">
 						<f:selectItem itemLabel="SELECIONE" itemValue="" />
-						</h:selectOneMenu>	
-						
-						<h:outputText value="Campus Destino:" style="font-weight: bold;" />
-						<h:selectOneMenu value=""
-						required="true">
-						<f:selectItem itemLabel="SELECIONE" itemValue="" />
-						</h:selectOneMenu>	
-						
-						<h:outputText value="Justificativa: " />
-						<h:inputTextarea
-						value="" cols="60" rows="3"
+						<f:selectItems value="#{servidorController.unidadeList}"/>
+					</h:selectOneMenu>
+
+					<h:outputText value="Justificativa: " />
+					<h:inputTextarea value="" cols="60" rows="3"
 						onkeypress="mascara(this, soNumeros);">
-						</h:inputTextarea>
-										
+					</h:inputTextarea>
 
-						<br />
 
-						<a4j:commandButton value="Salvar"
-							action="#{enqueteController.salvar}"
-							reRender="form" />
+					<br />
 
-						<rich:messages layout="list" errorLabelClass="errorLabel"
-							style="top:auto;" infoLabelClass="infoLabel">
-							<f:facet name="infoMarker">
-								<h:graphicImage value="../images/passed.gif" />
-							</f:facet>
-							<f:facet name="errorMarker">
-								<h:graphicImage value="../images/error.gif" />
-							</f:facet>
-						</rich:messages>
+					<a4j:commandButton value="Salvar"
+						action="#{enqueteController.salvar}" reRender="form" />
 
-					</h:panelGrid>
-					<center>
-						<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
-					</center>
+					<rich:messages layout="list" errorLabelClass="errorLabel"
+						style="top:auto;" infoLabelClass="infoLabel">
+						<f:facet name="infoMarker">
+							<h:graphicImage value="../images/passed.gif" />
+						</f:facet>
+						<f:facet name="errorMarker">
+							<h:graphicImage value="../images/error.gif" />
+						</f:facet>
+					</rich:messages>
 
-				
+				</h:panelGrid>
+				<center>
+					<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
+				</center>
+
+
 			</a4j:form>
-	</rich:panel>
+		</rich:panel>
 	</f:view>
 </body>
 </html>
