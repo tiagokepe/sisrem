@@ -23,7 +23,7 @@ public class SisRemDAO extends DAO {
 			SQLException {
 
 		Usuario u = null;
-		String sql = "SELECT u.login, u.senha, p.nome FROM "
+		String sql = "SELECT u.login, u.senha, p.nome, p.id_pessoa FROM "
 				+ "comum.usuario u "
 				+ "INNER JOIN comum.pessoa p ON u.id_pessoa = p.id_pessoa "
 				+ "WHERE u.login = ? AND u.senha = ?";
@@ -38,6 +38,7 @@ public class SisRemDAO extends DAO {
 			u.setLogin(rs.getString("login"));
 			u.setSenha(rs.getString("senha"));
 			u.setNome(rs.getString("nome"));
+			u.setIdPessoa(rs.getLong("id_pessoa"));
 		}
 		return u;
 	}

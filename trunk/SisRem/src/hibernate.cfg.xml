@@ -7,9 +7,9 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 			
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sisrem</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.url">jdbc:mysql://172.19.10.188:3306/sisrem</property>
+		<property name="hibernate.connection.username">jefferson</property>
+		<property name="hibernate.connection.password">1234</property>
 		
 		<property name="hibernate.connection.autoReconnect">true</property>
 		<property name="pool_size">1</property>
@@ -26,7 +26,7 @@
 		
 		<mapping resource="usuario.hbm.xml" />
 		<mapping resource="duvida.hbm.xml" />
-		<mapping resource="campus.hbm.xml" />
+		<!-- <mapping resource="campus.hbm.xml" />-->
 		
 	</session-factory>
 </hibernate-configuration>

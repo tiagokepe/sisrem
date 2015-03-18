@@ -8,7 +8,7 @@
 <a4j:form>
 
 				<h:outputText
-					value="Bem vindo #{usuarioLogado.nome}, Último acesso em ..." /><br/><br/>
+					value="Bem vindo #{usuarioLogado.nome}" /><br/><br/>
 		 	 <rich:toolBar>
 
 	            <rich:dropDownMenu>
@@ -18,7 +18,7 @@
 	                    </h:panelGroup>
 	                </f:facet>
 	                <rich:menuItem submitMode="ajax" value="Solicitar Remoção"
-	                    action="#{srController.abrirSolicitarRemocao}">
+	                    action="#{servidorController.cadastrar}">
 	                </rich:menuItem>
 	                <rich:menuItem submitMode="ajax" value="Acompanhar Processo"
 	                    action="#{srController.abrirAcompanharProcessos}">

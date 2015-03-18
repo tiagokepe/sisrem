@@ -6,11 +6,21 @@ public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private Long idPessoa;
 	private Long codigo;
 	private String login;
 	private String senha;
 	private String nome;
 	private boolean admin;
+
+	
+	public Long getIdPessoa() {
+		return idPessoa;
+	}
+
+	public void setIdPessoa(Long idPessoa) {
+		this.idPessoa = idPessoa;
+	}
 
 	public Long getCodigo() {
 		return codigo;
