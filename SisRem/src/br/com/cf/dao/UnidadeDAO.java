@@ -22,8 +22,8 @@ public class UnidadeDAO extends DAO {
 
 	public List<Unidade> buscaUnidades() throws SQLException {
 		List<Unidade> unidadeList = new ArrayList<Unidade>();
-		String sql = "SELECT U.ID_UNIDADE, U.NOME FROM COMUM.UNIDADE U ORDER BY U.NOME";
-		Statement stm = (Statement) JDBC.getConnection().createStatement();
+		String sql = "SELECT DISTINCT U.ID_UNIDADE, U.NOME FROM COMUM.UNIDADE U INNER JOIN RH.SERVIDOR S ON S.ID_UNIDADE = U.ID_UNIDADE WHERE S.DATA_DESLIGAMENTO IS NULL ORDER BY U.NOME";
+		Statement stm = (Statement) JDBCAdministrativo.getConnection().createStatement();
 		ResultSet rs = stm.executeQuery(sql);
 		while (rs.next()) {
 			Unidade u = new Unidade();

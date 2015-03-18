@@ -28,7 +28,7 @@ public class SisRemDAO extends DAO {
 				+ "INNER JOIN comum.pessoa p ON u.id_pessoa = p.id_pessoa "
 				+ "WHERE u.login = ? AND u.senha = ?";
 
-		PreparedStatement pstm = JDBC.getConnection().prepareStatement(sql);
+		PreparedStatement pstm = JDBCComum.getConnection().prepareStatement(sql);
 
 		pstm.setString(1, usuario.getLogin().toLowerCase());
 		pstm.setString(2, Encripty.criptografaSenha(usuario.getSenha()));

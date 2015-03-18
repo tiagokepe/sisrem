@@ -25,7 +25,7 @@ public class ServidorDAO extends DAO {
 				+ " INNER JOIN RH.CATEGORIA CT ON S.ID_CATEGORIA = CT.ID_CATEGORIA"
 				+ " INNER JOIN COMUM.UNIDADE U ON S.ID_UNIDADE = U.ID_UNIDADE"
 				+ " WHERE  S.DATA_DESLIGAMENTO IS NULL AND P.ID_PESSOA = " + idPessoa;
-		Statement stm = (Statement) JDBC.getConnection().createStatement();
+		Statement stm = (Statement) JDBCAdministrativo.getConnection().createStatement();
 		ResultSet rs = stm.executeQuery(sql);
 		while (rs.next()) {
 			s = new Servidor();
