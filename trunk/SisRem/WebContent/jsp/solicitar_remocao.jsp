@@ -85,7 +85,7 @@
 					</h:selectOneMenu>
 
 					<h:outputText value="Justificativa: " />
-					<h:inputTextarea value="" cols="108" rows="5" required="true"
+					<h:inputTextarea value="" cols="78" rows="5" required="true"
 						requiredMessage="O campo Justificativa é obrigatório:">
 					</h:inputTextarea>
 
