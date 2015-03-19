@@ -41,7 +41,7 @@
 				</rich:messages>
 
 
-				<h:panelGrid columns="2" style="margin-left:0">
+				<h:panelGrid columns="2" style="margin-left:0; line-height:20px;" >
 					<h:outputText value="Siape:" />
 					<h:outputText value="#{servidorController.servidor.siape}" />
 					<h:outputText value="Nome Servidor:" />
@@ -66,8 +66,8 @@
 					<h:outputText value="#{servidorController.servidor.telefone}" />
 					<h:outputText value="Email:" />
 					<h:outputText value="#{servidorController.servidor.email}" />
-
-
+					
+						
 					<h:outputText value="Selecione o Edital:"
 						style="font-weight: bold;" />
 
@@ -78,19 +78,20 @@
 
 
 					<h:outputText value="Unidade Destino:" style="font-weight: bold;" />
-					<h:selectOneMenu value="" required="true"
+					<h:selectOneMenu value="#" required="true"
 						requiredMessage="Selecione o Unidade de Destino!">
 						<f:selectItem itemLabel="SELECIONE" itemValue="" />
 						<f:selectItems value="#{servidorController.unidadeList}" />
 					</h:selectOneMenu>
 					
 					<h:outputText value="Área:" style="font-weight: bold;" />
-					<h:selectOneMenu value="" required="true"
-						requiredMessage="Selecione a Área!">
+					<h:selectOneMenu value="#" required="true"
+						requiredMessage="Selecione o Unidade de Destino!">
 						<f:selectItem itemLabel="SELECIONE" itemValue="" />
-					
+						<f:selectItems value="#{servidorController.areaList}" />
 					</h:selectOneMenu>
 					
+								
 
 					<h:outputText value="Justificativa: " />
 					<h:inputTextarea value="" cols="78" rows="5" required="true"
@@ -100,7 +101,7 @@
 					<br />
 
 					<a4j:commandButton value="Adicionar"
-						action="#{enqueteController.adicionar}" reRender="form" />
+						action="#" reRender="form" />
 
 					
 					</h:panelGrid>
