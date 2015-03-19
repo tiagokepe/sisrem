@@ -83,6 +83,14 @@
 						<f:selectItem itemLabel="SELECIONE" itemValue="" />
 						<f:selectItems value="#{servidorController.unidadeList}" />
 					</h:selectOneMenu>
+					
+					<h:outputText value="Área:" style="font-weight: bold;" />
+					<h:selectOneMenu value="" required="true"
+						requiredMessage="Selecione a Área!">
+						<f:selectItem itemLabel="SELECIONE" itemValue="" />
+					
+					</h:selectOneMenu>
+					
 
 					<h:outputText value="Justificativa: " />
 					<h:inputTextarea value="" cols="78" rows="5" required="true"
@@ -91,10 +99,60 @@
 
 					<br />
 
-					<a4j:commandButton value="Salvar"
-						action="#{enqueteController.salvar}" reRender="form" />
+					<a4j:commandButton value="Adicionar"
+						action="#{enqueteController.adicionar}" reRender="form" />
 
-				</h:panelGrid>
+					
+					</h:panelGrid>
+					<br/><hr><br/>
+					
+					<h:panelGrid columns="1">
+					
+					
+					<rich:dataTable value="#{meuPrimeiroDataTable.resultado}" var="item" style="margin-left:0px">
+					<rich:column>
+					
+					<f:facet name="header">
+					
+					<h:outputText value="OPÇÃO" />
+					
+					</f:facet>
+					
+					<h:outputText value="#{item.id}" />
+					
+					</rich:column><rich:column>
+					
+					<f:facet name="header">
+					
+					<h:outputText value="AREA" />
+					
+					</f:facet>
+					
+					<h:outputText value="#{item.id}" />
+					
+					</rich:column>							
+				
+					<rich:column>
+					
+					<f:facet name="header">
+					
+					<h:outputText value="CAMPUS DESTINO" />
+					
+					</f:facet>
+					
+					<h:outputText value="#{item.id}" />
+					
+					</rich:column>
+																					
+				
+				</rich:dataTable>
+				<br/>
+				<a4j:commandButton value="Confirmar e Salvar"
+						action="#{enqueteController.adicionar}" reRender="form" />
+				
+				</h:panelGrid>	
+				<br/><br/>
+					
 				<center>
 					<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
 				</center>
