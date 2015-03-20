@@ -1,14 +1,13 @@
 package br.com.cf.dao;
 
-import java.sql.ResultSet;
-
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
-import br.com.cf.entity.Area;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
+import br.com.cf.entity.Area;
+import br.com.cf.util.HibernateUtility;
 
 public class AreaDAO extends DAO {
 
@@ -21,18 +20,21 @@ public class AreaDAO extends DAO {
 		return instance;
 	}
 
-	public List<Area> buscaAreas() throws SQLException {
-		List<Area> areaList = new ArrayList<Area>();
-		String sql = "SELECT id_area_conhecimento_cnpq, nome FROM funcional.area_conhecimento_cnpq WHERE id_sub_area IS NULL and excluido = 'f' ORDER BY nome ASC";
-		Statement stm = (Statement) JDBCAdministrativo.getConnection().createStatement();
-		ResultSet rs = stm.executeQuery(sql);
-		while (rs.next()) {
-			Area u = new Area();
-			u.setCodigo(rs.getLong("id_area_conhecimento_cnpq"));
-			u.setNome(rs.getString("nome"));
-			areaList.add(u);
-		}
-		return areaList;
+	@SuppressWarnings("unchecked")
+	public List<Area> listByArea(Area area) {
+		HibernateUtility.getSession().clear();
+		HibernateUtility.beginTransaction();
+		HibernateUtility.commitTransaction();
+		return HibernateUtility.getSession().createCriteria(Area.class).add(
+				Restrictions.eq("nome", area)).addOrder(Order.asc("nome")).list();
 	}
+	
+	/*public List<Area> pesquisar(String consulta) {
+		
+		HibernateUtility.getSession().clear();
+		Criteria criteria = HibernateUtility.getSession().createCriteria(Area.class).add(Restrictions.eq("nome", consulta));
 
+		HibernateUtility.commitTransaction();
+		return (List<Area>) criteria.list();
+	}*/
 }
