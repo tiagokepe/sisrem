@@ -17,14 +17,14 @@ public class ServidorDAO extends DAO {
 		return instance;
 	}
 
-	public Servidor buscaServidor(Long idPessoa) throws SQLException {
+	public Servidor buscaServidor(Long cpf) throws SQLException {
 		Servidor s = null;
 		String sql = "SELECT P.NOME, P.DATA_NASCIMENTO, P.TELEFONE, P.CELULAR, P.EMAIL, S.SIAPE, S.ADMISSAO, C.DENOMINACAO, CT.DESCRICAO, U.NOME as unidade FROM COMUM.PESSOA P"
 				+ " INNER JOIN RH.SERVIDOR S ON P.ID_PESSOA = S.ID_PESSOA"
 				+ " INNER JOIN RH.CARGO C ON S.ID_CARGO = C.ID"
 				+ " INNER JOIN RH.CATEGORIA CT ON S.ID_CATEGORIA = CT.ID_CATEGORIA"
 				+ " INNER JOIN COMUM.UNIDADE U ON S.ID_UNIDADE = U.ID_UNIDADE"
-				+ " WHERE  S.DATA_DESLIGAMENTO IS NULL AND P.ID_PESSOA = " + idPessoa;
+				+ " WHERE  S.DATA_DESLIGAMENTO IS NULL AND P.CPF_CNPJ = " + cpf;
 		Statement stm = (Statement) JDBCAdministrativo.getConnection().createStatement();
 		ResultSet rs = stm.executeQuery(sql);
 		while (rs.next()) {

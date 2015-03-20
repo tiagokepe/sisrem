@@ -12,8 +12,16 @@ public class Usuario implements Serializable {
 	private String senha;
 	private String nome;
 	private boolean admin;
+	private Long cpf;
 
-	
+	public Long getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
+	}
+
 	public Long getIdPessoa() {
 		return idPessoa;
 	}

@@ -24,9 +24,10 @@
 		<property name="hibernate.cache.use_second_level_cache">false</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
-		<mapping resource="usuario.hbm.xml" />
+		
 		<mapping resource="duvida.hbm.xml" />
-		<!-- <mapping resource="campus.hbm.xml" />-->
+		<mapping resource="intencao.hbm.xml" />
+		<mapping resource="usuario.hbm.xml" />
 		
 	</session-factory>
 </hibernate-configuration>
