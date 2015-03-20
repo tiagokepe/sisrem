@@ -13,12 +13,10 @@ import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
 import br.com.cf.constantes.Constantes;
-import br.com.cf.dao.AreaDAO;
 import br.com.cf.dao.DAO;
 import br.com.cf.dao.IntencaoDAO;
 import br.com.cf.dao.ServidorDAO;
 import br.com.cf.dao.UnidadeDAO;
-import br.com.cf.entity.Area;
 import br.com.cf.entity.Intencao;
 import br.com.cf.entity.Servidor;
 import br.com.cf.entity.Unidade;
@@ -88,7 +86,6 @@ public class ServidorController {
 		intencaoList = new ArrayList<Intencao>();
 		buscarUsuarioLogado();
 		buscarUnidades();
-		buscarAreas();
 		intencaoList = IntencaoDAO.getInstance().buscarIntencao(servidor.getSiape());
 		FacesContext.getCurrentInstance().getExternalContext()
 				.redirect("solicitar_remocao.jsp");
@@ -102,16 +99,6 @@ public class ServidorController {
 			unidadeList.add(new SelectItem(item.getNome(), item.getNome()));
 		}
 		return unidadeList;
-	}
-
-	public List<SelectItem> buscarAreas() throws SQLException {
-		areaList = new ArrayList<SelectItem>();
-		List<Area> uarea = new ArrayList<Area>();
-		uarea = AreaDAO.getInstance().buscaAreas();
-		for (Area item : uarea) {
-			areaList.add(new SelectItem(item.getNome(), item.getNome()));
-		}
-		return areaList;
 	}
 
 	public void buscarUsuarioLogado() throws IOException, ParseException,
