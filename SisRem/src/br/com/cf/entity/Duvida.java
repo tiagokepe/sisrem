@@ -7,8 +7,8 @@ public class Duvida implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long codigo;
-	private String pergunta;
-	private String resposta;
+	private String enunciado;
+	private String descricao;
 
 	public Long getCodigo() {
 		return codigo;
@@ -18,20 +18,20 @@ public class Duvida implements Serializable {
 		this.codigo = codigo;
 	}
 
-	public String getPergunta() {
-		return pergunta;
+	public String getEnunciado() {
+		return enunciado;
 	}
 
-	public void setPergunta(String pergunta) {
-		this.pergunta = pergunta;
+	public void setEnunciado(String enunciado) {
+		this.enunciado = enunciado;
 	}
 
-	public String getResposta() {
-		return resposta;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setResposta(String resposta) {
-		this.resposta = resposta;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public static long getSerialversionuid() {

@@ -8,7 +8,7 @@
 			<column name="duv_cod" not-null="true" />
 			<generator class="identity" />
 		</id>
-		<property name="pergunta" column="duv_perg" not-null="true"/>
-		<property name="resposta" column="duv_resp" not-null="true"/>
+		<property name="enunciado" column="duv_enun" not-null="true"/>
+		<property name="descricao" column="duv_desc" not-null="true"/>
 	</class>
 </hibernate-mapping>

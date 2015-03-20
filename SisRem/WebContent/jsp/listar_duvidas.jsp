@@ -27,36 +27,54 @@
 			<h:outputText value="Dúvidas Frequentes - FAQ"
 				style="font-size: 22px; margin-bottom: 50px"></h:outputText>
 				<h:messages />
-			<h:form>
-				<rich:dataTable value="#{duvidaController.listaDuvidas}" var="duvida"
+				<a4j:form id="form">
+				<center>
+					<rich:messages layout="list" errorLabelClass="errorLabel"
+						style="top:auto;" infoLabelClass="infoLabel">
+						<f:facet name="infoMarker">
+							<h:graphicImage value="../images/passed.gif" />
+						</f:facet>
+						<f:facet name="errorMarker">
+							<h:graphicImage value="../images/error.gif" />
+						</f:facet>
+					</rich:messages>
+				</center>
+			
+				<rich:dataTable id="listaDuvidas" value="#{duvidaController.listaDuvidas}" var="duvida"
 					width="1080px" columnClasses="center" rows="15" reRender="ds">
 					<f:facet name="header">
 						<h:outputText value="Dúvidas Frequentes - FAQ" />
 					</f:facet>
-					<rich:column style="text-align: center" sortBy="#{duvida.pergunta}">
+					<rich:column style="text-align: center" sortBy="#{duvida.enunciado}">
 						<f:facet name="header">
-							<h:outputText value="Pergunta" />
+							<h:outputText value="Enunciado" />
 						</f:facet>
-						<h:outputText value="#{duvida.pergunta}" />
+						<h:outputText value="#{duvida.enunciado}" />
 					</rich:column>
-					<rich:column sortBy="#{duvida.resposta}">
+					<rich:column sortBy="#{duvida.descricao}">
 						<f:facet name="header">
-							<h:outputText value="Resposta" />
+							<h:outputText value="Descrição" />
 						</f:facet>
-						<h:outputText value="#{duvida.resposta}" escape="false"/>
+						<h:outputText value="#{duvida.descricao}" escape="false"/>
 					</rich:column>
 					<rich:column style="text-align: center">
 						<f:facet name="header">
 							<h:outputText value="Ações" />
 						</f:facet>
-						<h:commandLink title="Editar"><h:graphicImage value="../images/edit.gif" alt="Editar" /></h:commandLink>
-						<h:commandLink title="Excluir" style="margin-left: 10px;"><h:graphicImage value="../images/delete.gif" alt="Excluir" /> </h:commandLink>
+						<a4j:commandLink action="#{duvidaController.editar}" title="Editar" reRender="form, messages, listaDuvidas">
+							<h:graphicImage value="../images/edit.gif" style="border:0"
+								id="edit" alt="Editar" />
+						</a4j:commandLink>
+						<a4j:commandLink action="#{duvidaController.excluir}" title="Excluir" reRender="form, messages, listaDuvidas">
+							<h:graphicImage value="../images/delete.gif" style="border:0; margin-left: 10px;"
+								id="delete" alt="Exlcuir" />
+						</a4j:commandLink>
 					</rich:column>
 					<f:facet name="footer">
 						<rich:datascroller id="ds"></rich:datascroller>
 					</f:facet>
 				</rich:dataTable>
-			</h:form>
+			</a4j:form>
 		</rich:panel>
 	</f:view>
 </body>

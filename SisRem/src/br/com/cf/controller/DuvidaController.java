@@ -7,8 +7,12 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.apache.poi.hssf.util.HSSFColor.TURQUOISE;
+
+import br.com.cf.dao.DAO;
 import br.com.cf.dao.DuvidaDAO;
 import br.com.cf.entity.Duvida;
+import br.com.cf.entity.Intencao;
 
 public class DuvidaController {
 	private Duvida duvida;
@@ -44,11 +48,18 @@ public class DuvidaController {
 	public void pesquisar(String consulta){
 		listaDuvidas = DuvidaDAO.getInstance().pesquisar(consulta);
 	}
-	
-	public void cadastrar() throws IOException{
+		
+	@SuppressWarnings("unchecked")
+	public void salvar() throws IOException{
 		try {
-			DuvidaDAO.getInstance().save(duvida);
-			FacesContext.getCurrentInstance().addMessage("", new FacesMessage("Cadastro realizado com sucesso!"));
+			if (duvida.getCodigo() == 0){
+				duvida.setCodigo(null);
+			}
+			
+			DuvidaDAO.getInstance().saveOrUpdate(duvida);
+			listaDuvidas = (List<Duvida>) DuvidaDAO.getInstance().list(Duvida.class);
+			duvida = new Duvida();
+			FacesContext.getCurrentInstance().addMessage("", new FacesMessage("Dúvida gravada com sucesso!"));
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage("", new FacesMessage(ERRO_OPERACAO));
 		} finally {
@@ -58,14 +69,36 @@ public class DuvidaController {
 	
 	public void nova() throws IOException{
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("cad_duvida.jsp");
+			FacesContext.getCurrentInstance().getExternalContext().redirect("form_duvida.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public void listar() throws IOException{
+		duvida = new Duvida();
 		FacesContext.getCurrentInstance().getExternalContext().redirect("listar_duvidas.jsp");
 	}
 	
+	public void editar() throws IOException{
+		FacesContext context = FacesContext.getCurrentInstance();
+		duvida = (Duvida) context.getExternalContext().getRequestMap()
+				.get("duvida");
+		context.getExternalContext().redirect("form_duvida.jsp");
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void excluir() throws IOException{
+		FacesContext context = FacesContext.getCurrentInstance();
+		duvida = (Duvida) context.getExternalContext().getRequestMap()
+				.get("duvida");
+		DuvidaDAO.getInstance().delete(duvida);
+		listaDuvidas = (List<Duvida>) DuvidaDAO.getInstance().list(Duvida.class);
+		duvida = new Duvida();
+	}
+	
+	public void cancelar() throws IOException{
+		duvida = new Duvida();
+		FacesContext.getCurrentInstance().getExternalContext().redirect("form_duvida.jsp");
+	}
 }

@@ -25,8 +25,8 @@ public class DuvidaDAO extends DAO {
 		HibernateUtility.getSession().clear();
 		Criteria criteria = HibernateUtility.getSession().createCriteria(Duvida.class)
 				.add(Restrictions.or(
-						Restrictions.like("pergunta", consulta), 
-						Restrictions.like("resposta", consulta))
+						Restrictions.like("enunciado", consulta), 
+						Restrictions.like("descricao", consulta))
 					);
 		HibernateUtility.commitTransaction();
 		return (List<Duvida>) criteria.list();
