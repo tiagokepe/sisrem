@@ -29,19 +29,19 @@
 
 			<a4j:form id="form">
 
+				<center>
+					<rich:messages layout="list" errorLabelClass="errorLabel"
+						style="top:auto;" infoLabelClass="infoLabel">
+						<f:facet name="infoMarker">
+							<h:graphicImage value="../images/passed.gif" />
+						</f:facet>
+						<f:facet name="errorMarker">
+							<h:graphicImage value="../images/error.gif" />
+						</f:facet>
+					</rich:messages>
+				</center>
 
-				<rich:messages layout="list" errorLabelClass="errorLabel"
-					style="top:auto;" infoLabelClass="infoLabel">
-					<f:facet name="infoMarker">
-						<h:graphicImage value="../images/passed.gif" />
-					</f:facet>
-					<f:facet name="errorMarker">
-						<h:graphicImage value="../images/error.gif" />
-					</f:facet>
-				</rich:messages>
-
-
-				<h:panelGrid columns="2" style="margin-left:0; line-height:20px;" >
+				<h:panelGrid columns="2" style="margin-left:0; line-height:20px;">
 					<h:outputText value="Siape:" />
 					<h:outputText value="#{servidorController.servidor.siape}" />
 					<h:outputText value="Nome Servidor:" />
@@ -66,94 +66,114 @@
 					<h:outputText value="#{servidorController.servidor.telefone}" />
 					<h:outputText value="Email:" />
 					<h:outputText value="#{servidorController.servidor.email}" />
-					
-						
+
+
 					<h:outputText value="Selecione o Edital:"
 						style="font-weight: bold;" />
 
-					<h:selectOneMenu value="" required="true"
-						requiredMessage="Selecione o Edital!">
+					<h:selectOneMenu value="#{servidorController.intencao.edital}"
+						required="false" requiredMessage="Selecione o Edital!">
 						<f:selectItem itemLabel="SELECIONE" itemValue="" />
 					</h:selectOneMenu>
 
 
 					<h:outputText value="Unidade Destino:" style="font-weight: bold;" />
-					<h:selectOneMenu value="#" required="true"
-						requiredMessage="Selecione o Unidade de Destino!">
+					<h:selectOneMenu value="#{servidorController.intencao.destino}"
+						required="true" requiredMessage="Selecione o Unidade de Destino!">
 						<f:selectItem itemLabel="SELECIONE" itemValue="" />
 						<f:selectItems value="#{servidorController.unidadeList}" />
 					</h:selectOneMenu>
-					
-					<h:outputText value="Área:" style="font-weight: bold;" />
-					<h:selectOneMenu value="#" required="true"
+
+					<h:outputText value="Área:" style="font-weight: bold;"
+						rendered="#{servidorController.servidor.categoria == 'Docente'}" />
+					<h:selectOneMenu value="#{servidorController.intencao.area}"
+						required="true"
+						rendered="#{servidorController.servidor.categoria == 'Docente'}"
 						requiredMessage="Selecione o Unidade de Destino!">
 						<f:selectItem itemLabel="SELECIONE" itemValue="" />
 						<f:selectItems value="#{servidorController.areaList}" />
 					</h:selectOneMenu>
-					
-								
 
-					<h:outputText value="Justificativa: " />
-					<h:inputTextarea value="" cols="78" rows="5" required="true"
+
+
+					<h:outputText value="Justificativa: " style="font-weight: bold;" />
+					<h:inputTextarea
+						value="#{servidorController.intencao.justificativa}" cols="78"
+						rows="5" required="true"
 						requiredMessage="O campo Justificativa é obrigatório:">
 					</h:inputTextarea>
 
 					<br />
 
 					<a4j:commandButton value="Adicionar"
-						action="#" reRender="form" />
+						action="#{servidorController.adicionarIntencao}" reRender="form" />
 
-					
-					</h:panelGrid>
-					<br/><hr><br/>
-					
-					<h:panelGrid columns="1">
-					
-					
-					<rich:dataTable value="#{meuPrimeiroDataTable.resultado}" var="item" style="margin-left:0px">
-					<rich:column>
-					
-					<f:facet name="header">
-					
-					<h:outputText value="OPÇÃO" />
-					
-					</f:facet>
-					
-					<h:outputText value="#{item.id}" />
-					
-					</rich:column><rich:column>
-					
-					<f:facet name="header">
-					
-					<h:outputText value="AREA" />
-					
-					</f:facet>
-					
-					<h:outputText value="#{item.id}" />
-					
-					</rich:column>							
-				
-					<rich:column>
-					
-					<f:facet name="header">
-					
-					<h:outputText value="CAMPUS DESTINO" />
-					
-					</f:facet>
-					
-					<h:outputText value="#{item.id}" />
-					
+
+				</h:panelGrid>
+				<br />
+				<br />
+				<h:outputText value="Opções de Destinos já cadastradas:"
+					style="font-weight: bold;"
+					rendered="#{ not empty servidorController.intencaoList}" />
+
+				<rich:dataTable id="listarIntencoes"
+					rendered="#{ not empty servidorController.intencaoList}"
+					value="#{servidorController.intencaoList}" var="list"
+					title="Lista de Intenções" width="1000px" columnClasses="center"
+					rows="10" reRender="ds">
+
+
+					<rich:column width="100px">
+						<f:facet name="header">
+							<h:outputText value="Data Solicitação" />
+						</f:facet>
+						<h:outputText value="#{list.dataInscricao}">
+							<f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss" />
+						</h:outputText>
 					</rich:column>
-																					
-				
+
+					<rich:column width="200px">
+						<f:facet name="header">
+							<h:outputText value="Destino" />
+						</f:facet>
+						<h:outputText value="#{list.destino}" />
+					</rich:column>
+
+					<rich:column width="200px"
+						rendered="#{servidorController.servidor.categoria == 'Docente'}">
+						<f:facet name="header">
+							<h:outputText value="Area" />
+						</f:facet>
+						<h:outputText value="#{list.area}" />
+					</rich:column>
+
+					<rich:column width="600px">
+						<f:facet name="header">
+							<h:outputText value="Justificativa" />
+						</f:facet>
+						<h:outputText value="#{list.justificativa}" />
+					</rich:column>
+
+					<rich:column width="50px">
+						<f:facet name="header">
+							<h:outputText value="Excluir" />
+						</f:facet>
+						<a4j:commandLink action="#{servidorController.excluirIntencao}"
+							reRender="form" ajaxSingle="true">
+							<h:graphicImage value="../images/delete.gif" style="border:0"
+								id="delete" />
+
+						</a4j:commandLink>
+						<rich:toolTip for="editar" value="Editar" />
+					</rich:column>
+
+
 				</rich:dataTable>
-				<br/>
-				<a4j:commandButton value="Confirmar e Salvar"
-						action="#{enqueteController.adicionar}" reRender="form" />
-				
-				</h:panelGrid>	
-				<br/><br/>
-					
+
+
+				<br />
+				<br />
+
 				<center>
 					<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
 				</center>
