@@ -32,6 +32,61 @@
 			
 		
 		<br/>
+				<rich:dataTable id="listarIntencoes"	
+					value="#{servidorController.intencaoList}" var="list"
+					title="Lista de Intenções" width="1000px" columnClasses="center"
+					rows="10" reRender="ds">
+
+
+					<rich:column width="100px">
+						<f:facet name="header">
+							<h:outputText value="Data Solicitação" />
+						</f:facet>
+						<h:outputText value="#{list.dataInscricao}">
+							<f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss" />
+						</h:outputText>
+					</rich:column>
+
+					<rich:column width="200px">
+						<f:facet name="header">
+							<h:outputText value="Destino" />
+						</f:facet>
+						<h:outputText value="#{list.destino}" />
+					</rich:column>
+
+					<rich:column width="200px"
+						rendered="#{servidorController.servidor.categoria == 'Docente'}">
+						<f:facet name="header">
+							<h:outputText value="Area" />
+						</f:facet>
+						<h:outputText value="#{list.area}" />
+					</rich:column>
+
+					<rich:column width="600px">
+						<f:facet name="header">
+							<h:outputText value="Justificativa" />
+						</f:facet>
+						<h:outputText value="#{list.justificativa}" />
+					</rich:column>
+
+					<rich:column width="50px">
+						<f:facet name="header">
+							<h:outputText value="Excluir" />
+						</f:facet>
+						<a4j:commandLink action="#{servidorController.excluirIntencao}"
+							reRender="form" ajaxSingle="true">
+							<h:graphicImage value="../images/delete.gif" style="border:0"
+								id="delete" />
+
+						</a4j:commandLink>
+						<rich:toolTip for="editar" value="Editar" />
+					</rich:column>
+
+
+				</rich:dataTable>
+		
+		
+		
 				<rich:dataTable value="#{meuPrimeiroDataTable.resultado}" var="item">
 				
 					<rich:column>
@@ -50,49 +105,13 @@
 					
 					<f:facet name="header">
 					
-					<h:outputText value="DATA DE ENTRADA" />
+					<h:outputText value="DATA DA INTENÇÃO" />
 					
 					</f:facet>
 					
 					<h:outputText value="#{item.id}" />
 					
-					</rich:column>				
-				
-					<rich:column>
-					
-					<f:facet name="header">
-					
-					<h:outputText value="EDITAL" />
-					
-					</f:facet>
-					
-					<h:outputText value="#{item.id}" />
-					
-					</rich:column>
-					
-					<rich:column>
-					
-					<f:facet name="header">
-					
-					<h:outputText value="COD. VAGA" />
-					
-					</f:facet>
-					
-					<h:outputText value="#{item.id}" />
-					
-					</rich:column>
-					
-					<rich:column>
-					
-					<f:facet name="header">
-					
-					<h:outputText value="VAGAS" />
-					
-					</f:facet>
-					
-					<h:outputText value="#{item.email}" />
-					
-					</rich:column>
+					</rich:column>									
 					
 					<rich:column>
 					
