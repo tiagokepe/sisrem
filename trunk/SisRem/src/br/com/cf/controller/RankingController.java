@@ -29,33 +29,43 @@ public class RankingController {
 
 	public void ranquearPrimeiraFase() {
 		buscarIntencaoPrimeiraFase();
-		int contador = 1;
+		int contador = 0;
 		String destino = intencaoList.get(0).getDestino();
 		String cargo = intencaoList.get(0).getCargo();
 		for (Intencao item : intencaoList) {
-			if (!(item.getDestino().equals(destino))) {
-				if (item.getCargo().equals(cargo)) {
-					destino = item.getDestino();
-					contador = 1;
-					item.setColocacao(contador);
-					DAO.getInstance().update(item);
-					contador++;
-					// EnviarEmail e = new EnviarEmail();
-					// e.enviarEmail(item.getEmail());}
-				} else {
-					cargo = item.getCargo();
-					contador = 1;
-					item.setColocacao(contador);
-					DAO.getInstance().update(item);
-					contador++;
-				}
-			} else {
+			if (item.getDestino().equals(destino)
+					&& item.getCargo().equals(cargo)) {
+				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
+				// enviar email
+			} else if (item.getDestino().equals(destino)
+					&& !(item.getCargo().equals(cargo))) {
+				cargo = item.getCargo();
+				contador = 0;
 				contador++;
-				// EnviarEmail e = new EnviarEmail();
-				// e.enviarEmail(item.getEmail());
+				item.setColocacao(contador);
+				DAO.getInstance().update(item);
+				// enviar email
+			} else if (!(item.getDestino().equals(destino))
+					&& (item.getCargo().equals(cargo))) {
+				destino = item.getDestino();
+				contador = 0;
+				contador++;
+				item.setColocacao(contador);
+				DAO.getInstance().update(item);
 			}
+			// enviar email}
+			else {
+				destino = item.getDestino();
+				cargo = item.getCargo();
+				contador = 0;
+				contador++;
+				item.setColocacao(contador);
+				DAO.getInstance().update(item);
+				// enviar email
+			}
+
 		}
 
 	}
@@ -68,33 +78,43 @@ public class RankingController {
 
 	public void ranquearSegundaFase() {
 		buscarIntencaoSegundaFase();
-		int contador = 1;
+		int contador = 0;
 		String destino = intencaoList.get(0).getDestino();
 		String cargo = intencaoList.get(0).getCargo();
 		for (Intencao item : intencaoList) {
-			if (!(item.getDestino().equals(destino))) {
-				if (item.getCargo().equals(cargo)) {
-					destino = item.getDestino();
-					contador = 1;
-					item.setColocacao(contador);
-					DAO.getInstance().update(item);
-					contador++;
-					// EnviarEmail e = new EnviarEmail();
-					// e.enviarEmail(item.getEmail());}
-				} else {
-					cargo = item.getCargo();
-					contador = 1;
-					item.setColocacao(contador);
-					DAO.getInstance().update(item);
-					contador++;
-				}
-			} else {
+			if (item.getDestino().equals(destino)
+					&& item.getCargo().equals(cargo)) {
+				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
+				// enviar email
+			} else if (item.getDestino().equals(destino)
+					&& !(item.getCargo().equals(cargo))) {
+				cargo = item.getCargo();
+				contador = 0;
 				contador++;
-				// EnviarEmail e = new EnviarEmail();
-				// e.enviarEmail(item.getEmail());
+				item.setColocacao(contador);
+				DAO.getInstance().update(item);
+				// enviar email
+			} else if (!(item.getDestino().equals(destino))
+					&& (item.getCargo().equals(cargo))) {
+				destino = item.getDestino();
+				contador = 0;
+				contador++;
+				item.setColocacao(contador);
+				DAO.getInstance().update(item);
 			}
+			// enviar email}
+			else {
+				destino = item.getDestino();
+				cargo = item.getCargo();
+				contador = 0;
+				contador++;
+				item.setColocacao(contador);
+				DAO.getInstance().update(item);
+				// enviar email
+			}
+
 		}
 
 	}
