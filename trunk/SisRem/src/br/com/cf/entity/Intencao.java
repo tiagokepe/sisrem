@@ -20,6 +20,7 @@ public class Intencao implements Serializable {
 	private Integer colocacao;
 	private String email;
 	private String cargo;
+	private String nome;
 	
 	public String getOrigem() {
 		return origem;
@@ -100,6 +101,12 @@ public class Intencao implements Serializable {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	
 }
