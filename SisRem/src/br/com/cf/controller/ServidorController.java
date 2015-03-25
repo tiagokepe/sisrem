@@ -119,8 +119,7 @@ public class ServidorController {
 			intencao.setNascimento(servidor.getDataNascimento());
 			intencao.setEmail(servidor.getEmail());
 			intencao.setCargo(servidor.getCargo());
-		
-			
+			intencao.setNome(servidor.getNome());
 			//if(intencao.getDataInscricao().compareTo(Constantes.DATA_FINAL_PRIMEIRA_FASE)==1){
 				intencao.setFase(1);
 		//	}else{
