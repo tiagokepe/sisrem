@@ -39,17 +39,22 @@
 							<h:graphicImage value="../images/error.gif" />
 						</f:facet>
 					</rich:messages>
+
+
+					<h:panelGrid columns="1" style="margin-left:0; line-height:20px;">
+						<a4j:commandButton value="Ranquear Primeira Fase"
+							action="#{rankingController.ranquearPrimeiraFase}"
+							reRender="form" />
+
+						<a4j:commandButton value="Ranquear Segunda Fase"
+							action="#{rankingController.ranquearSegundaFase}" reRender="form" />
+
+						<h:outputText
+							value="OBS: Isso operação pode levar alguns minutos...Por favor aguarde!"
+							style="font-weight: bold;" />
+
+					</h:panelGrid>
 				</center>
-
-				<h:panelGrid columns="2" style="margin-left:0; line-height:20px;">
-					<a4j:commandButton value="Ranquear Primeira Fase"
-						action="#{rankingController.ranquearPrimeiraFase}" reRender="form" />
-						
-					<a4j:commandButton value="Ranquear Segunda Fase"
-						action="#{rankingController.ranquearsegundaaFase}" reRender="form" />	
-
-
-				</h:panelGrid>
 				<center>
 					<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
 				</center>
