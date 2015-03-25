@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import br.com.cf.dao.DAO;
 import br.com.cf.dao.IntencaoDAO;
 import br.com.cf.entity.Intencao;
+import br.com.cf.util.EnviarEmail;
 
 public class RankingController {
 
@@ -38,7 +39,8 @@ public class RankingController {
 				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
-				// enviar email
+				EnviarEmail e = new EnviarEmail();
+				e.enviarEmail(item);
 			} else if (item.getDestino().equals(destino)
 					&& !(item.getCargo().equals(cargo))) {
 				cargo = item.getCargo();
@@ -46,7 +48,8 @@ public class RankingController {
 				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
-				// enviar email
+				EnviarEmail e = new EnviarEmail();
+				e.enviarEmail(item);
 			} else if (!(item.getDestino().equals(destino))
 					&& (item.getCargo().equals(cargo))) {
 				destino = item.getDestino();
@@ -54,8 +57,10 @@ public class RankingController {
 				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
+				EnviarEmail e = new EnviarEmail();
+				e.enviarEmail(item);
 			}
-			// enviar email}
+
 			else {
 				destino = item.getDestino();
 				cargo = item.getCargo();
@@ -63,7 +68,8 @@ public class RankingController {
 				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
-				// enviar email
+				EnviarEmail e = new EnviarEmail();
+				e.enviarEmail(item);
 			}
 
 		}
@@ -87,7 +93,8 @@ public class RankingController {
 				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
-				// enviar email
+				EnviarEmail e = new EnviarEmail();
+				e.enviarEmail(item);
 			} else if (item.getDestino().equals(destino)
 					&& !(item.getCargo().equals(cargo))) {
 				cargo = item.getCargo();
@@ -95,7 +102,8 @@ public class RankingController {
 				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
-				// enviar email
+				EnviarEmail e = new EnviarEmail();
+				e.enviarEmail(item);
 			} else if (!(item.getDestino().equals(destino))
 					&& (item.getCargo().equals(cargo))) {
 				destino = item.getDestino();
@@ -103,16 +111,17 @@ public class RankingController {
 				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
-			}
-			// enviar email}
-			else {
+				EnviarEmail e = new EnviarEmail();
+				e.enviarEmail(item);
+			} else {
 				destino = item.getDestino();
 				cargo = item.getCargo();
 				contador = 0;
 				contador++;
 				item.setColocacao(contador);
 				DAO.getInstance().update(item);
-				// enviar email
+				EnviarEmail e = new EnviarEmail();
+				e.enviarEmail(item);
 			}
 
 		}
