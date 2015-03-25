@@ -120,11 +120,7 @@ public class ServidorController {
 			intencao.setEmail(servidor.getEmail());
 			intencao.setCargo(servidor.getCargo());
 			intencao.setNome(servidor.getNome());
-			//if(intencao.getDataInscricao().compareTo(Constantes.DATA_FINAL_PRIMEIRA_FASE)==1){
-				intencao.setFase(1);
-		//	}else{
-		//		intencao.setFase(2);
-		//	}
+			intencao.setFase(Constantes.FASE_VIGENTE);
 			
 			intencaoList.add(intencao);
 			DAO.getInstance().save(intencao);
