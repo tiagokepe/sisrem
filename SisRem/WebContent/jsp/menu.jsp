@@ -14,7 +14,7 @@
 	            <rich:dropDownMenu>
 	                <f:facet name="label"> 
 	                    <h:panelGroup>
-	                        <h:outputText value="Processos"/>
+	                        <h:outputText value="Remoção"/>
 	                    </h:panelGroup>
 	                </f:facet>
 	                <rich:menuItem submitMode="ajax" value="Solicitar Remoção"
