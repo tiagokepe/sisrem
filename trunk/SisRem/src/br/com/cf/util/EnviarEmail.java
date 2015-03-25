@@ -37,10 +37,10 @@ public class EnviarEmail {
 		String remetente = "remocao@ifpr.edu.br";
 		String smtpHost = "smtp.gmail.com";
 		String porta = "465";
-		String senha = "3nqu3t31f";
+		String senha = "";
 
 		assunto = "Cadastro de Intenção de Remoção";
-		conteudoDoEmail = "Prezado (a)  ";
+		conteudoDoEmail = "Prezado (a) "+intencao.getNome();
 		conteudoDoEmail += "\n\n Você é o "+ intencao.getColocacao() +"º colocado para remoção para a unidade: "+intencao.getDestino();
 		conteudoDoEmail += "\n\n Assim que houver uma vaga a PROGEPE entrará em contato";
 		try {
