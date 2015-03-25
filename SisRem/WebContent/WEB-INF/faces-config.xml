@@ -4,11 +4,6 @@ Config 1.1//EN"
 "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 <faces-config>
 	<managed-bean>
-		<managed-bean-name>enqueteController</managed-bean-name>
-		<managed-bean-class>br.com.cf.controller.EnqueteController</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
 		<managed-bean-name>usuarioController</managed-bean-name>
 		<managed-bean-class>br.com.cf.controller.UsuarioController</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
