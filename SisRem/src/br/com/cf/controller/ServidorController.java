@@ -114,6 +114,19 @@ public class ServidorController {
 		if (intencaoList.size() < Constantes.QTDE_MAXIMA_DE_DESTINOS) {
 			intencao.setDataInscricao(new Date());
 			intencao.setSiape(servidor.getSiape());
+			intencao.setAdmissao(servidor.getDataAdmissao());
+			intencao.setOrigem(servidor.getUnidade());
+			intencao.setNascimento(servidor.getDataNascimento());
+			intencao.setEmail(servidor.getEmail());
+			intencao.setCargo(servidor.getCargo());
+		
+			
+			//if(intencao.getDataInscricao().compareTo(Constantes.DATA_FINAL_PRIMEIRA_FASE)==1){
+				intencao.setFase(1);
+		//	}else{
+		//		intencao.setFase(2);
+		//	}
+			
 			intencaoList.add(intencao);
 			DAO.getInstance().save(intencao);
 			intencao = new Intencao();

@@ -68,14 +68,6 @@
 					<h:outputText value="#{servidorController.servidor.email}" />
 
 
-					<h:outputText value="Selecione o Edital:"
-						style="font-weight: bold;" />
-
-					<h:selectOneMenu value="#{servidorController.intencao.edital}"
-						required="false" requiredMessage="Selecione o Edital!">
-						<f:selectItem itemLabel="SELECIONE" itemValue="" />
-					</h:selectOneMenu>
-
 
 					<h:outputText value="Unidade Destino:" style="font-weight: bold;" />
 					<h:selectOneMenu value="#{servidorController.intencao.destino}"
