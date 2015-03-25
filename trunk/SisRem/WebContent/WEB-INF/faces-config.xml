@@ -19,11 +19,16 @@ Config 1.1//EN"
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
+		<managed-bean-name>rankingController</managed-bean-name>
+		<managed-bean-class>br.com.cf.controller.RankingController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
 		<managed-bean-name>servidorController</managed-bean-name>
 		<managed-bean-class>br.com.cf.controller.ServidorController</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
-		<managed-bean>
+	<managed-bean>
 		<managed-bean-name>srController</managed-bean-name>
 		<managed-bean-class>br.com.cf.controller.SisRemController</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>

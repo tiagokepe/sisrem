@@ -8,12 +8,18 @@
 			<column name="int_cod" not-null="true" />
 			<generator class="identity" />
 		</id>
-		<property name="edital" column="int_edital" />
 		<property name="destino" column="int_destino" />
 		<property name="dataInscricao" column="int_dataInscricao" />
 		<property name="area" column="int_area" />
 		<property name="justificativa" column="int_justificativa" />
 		<property name="siape" column="int_siape" />
+		<property name="origem" column="int_origem"/>
+		<property name="admissao" column="int_admissao" />
+		<property name="nascimento" column="int_nascimento" />
+		<property name="fase" column="int_fase" />
+		<property name="colocacao" column="int_colocacao" />
+		<property name="email" column="int_email" />
+		<property name="cargo" column="int_cargo" />
 	</class>
 </hibernate-mapping>
 

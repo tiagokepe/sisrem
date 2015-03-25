@@ -31,12 +31,12 @@
 	                <f:facet name="label">
 	                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
 	                        style="vertical-align:middle">
-	                        <h:outputText value="Editais" />
+	                        <h:outputText value="Ranquear" />
 	                    </h:panelGrid>
 	                </f:facet>
 	
-	                <rich:menuItem submitMode="ajax" value="Listar Editais"
-	                    action="#{srController.abrirListarEditais}">
+	                <rich:menuItem submitMode="ajax" value="Ranquear"
+	                    action="#{rankingController.cadastrar}">
 	                </rich:menuItem>
 	
 	

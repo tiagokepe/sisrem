@@ -26,4 +26,21 @@ public class IntencaoDAO extends DAO {
 		HibernateUtility.commitTransaction();
 		return (List<Intencao>) query.list();
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Intencao> buscarIntencaoPrimeiraFase(){
+		HibernateUtility.getSession().clear();
+		Query query = HibernateUtility.getSession().createQuery("from Intencao i where i.fase = 1 order by i.destino, i.cargo, i.admissao, i.nascimento, i.dataInscricao");
+		HibernateUtility.commitTransaction();
+		return (List<Intencao>) query.list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Intencao> buscarIntencaoSegundaFase(){
+		HibernateUtility.getSession().clear();
+		Query query = HibernateUtility.getSession().createQuery("from Intencao i where i.fase = 2 order by i.destino, i.cargo, i.dataInscricao");
+		HibernateUtility.commitTransaction();
+		return (List<Intencao>) query.list();
+	}
 }
