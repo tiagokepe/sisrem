@@ -18,10 +18,15 @@
 	<f:view>
 		<rich:panel>
 			<jsp:directive.include file="menu.jsp" />
-				<h:outputText value="Cadastro FAQ" style="font-size: 22px; margin-bottom: 50px"></h:outputText>
-				<a4j:form id="form">
-					<rich:messages id="messages" layout="list" errorLabelClass="errorLabel"
-						style="top:auto;" infoLabelClass="infoLabel">
+			<h:outputText value="Cadastro FAQ - Dúvidas Frequentes"
+				style="font-size: 22px;"></h:outputText>
+			<a4j:form id="form" style="margin-top: 20px;">
+				<h:panelGrid columns="2"
+					style="margin-left: 0px; padding-left: 0px;">
+					<h:inputHidden value="#{duvidaController.duvida.codigo}" />
+					<rich:messages id="messages" layout="list" 
+						errorLabelClass="errorLabel" style="top:auto;"
+						infoLabelClass="infoLabel">
 						<f:facet name="infoMarker">
 							<h:graphicImage value="../images/passed.gif" />
 						</f:facet>
@@ -29,24 +34,29 @@
 							<h:graphicImage value="../images/error.gif" />
 						</f:facet>
 					</rich:messages>
-					<h:inputHidden value="#{duvidaController.duvida.codigo}" />
-					<h:panelGrid columns="2" style="margin-left: 0px; padding-left: 0px;">
-						<h:outputText value="Enunciado:" />
-						<h:inputText value="#{duvidaController.duvida.enunciado}" required="true" size="60"
-							requiredMessage="Campo \"Enunciado\" obrigatório!" />
-						<h:outputText value="Resposta:" />
-				       <rich:editor id="editor" value="#{duvidaController.duvida.descricao}" required="true" requiredMessage="Campo \"Descrição\" obrigatório!">
-				          <f:param name="theme_advanced_buttons1" value="bold,italic,underline, cut,copy,paste,pasteword"/>
-				          <f:param name="theme_advanced_toolbar_location" value="top"/>                               
-				          <f:param name="theme_advanced_toolbar_align" value="left"/>
-			          </rich:editor>
-					</h:panelGrid>
+
+					<h:outputText value="Enunciado:" />
+					<h:inputText value="#{duvidaController.duvida.enunciado}"
+						required="true" size="60" style="margin-bottom: 10px;"
+						requiredMessage="Campo \"Enunciado\" obrigatório!" />
+					<h:outputText value="Descrição:" />
+					<rich:editor id="editor"
+						value="#{duvidaController.duvida.descricao}" required="true"
+						requiredMessage="Campo \"Descrição\" obrigatório!" width="400"
+						height="200">
+						<f:param name="theme_advanced_buttons1"
+							value="bold,italic,underline, cut,copy,paste,pasteword" />
+						<f:param name="theme_advanced_toolbar_location" value="top" />
+						<f:param name="theme_advanced_toolbar_align" value="left" />
+					</rich:editor>
+				</h:panelGrid>
 				<br />
-				<a4j:commandButton value="Cancelar" action="#{duvidaController.cancelar}"
-					reRender="form, messages" style="padding:5px 10px 5px 10px;border-radius:5px; margin: 0px 5px 0px 55px">
-				</a4j:commandButton>
-				<a4j:commandButton value="Salvar" action="#{duvidaController.salvar}"
-					reRender="form, messages">
+ 				<h:commandButton value="Cancelar" 
+					style="padding:5px 10px 5px 10px;border-radius:5px; margin: 0px 5px 0px 65px"
+					onclick="window.history.back();  return false;"
+					/>
+ 				<a4j:commandButton value="Salvar"
+					action="#{duvidaController.salvar}" reRender="form, messages">
 				</a4j:commandButton>
 			</a4j:form>
 		</rich:panel>
