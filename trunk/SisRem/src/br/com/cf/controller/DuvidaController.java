@@ -69,6 +69,7 @@ public class DuvidaController {
 	
 	public void nova() throws IOException{
 		try {
+			duvida = new Duvida();
 			FacesContext.getCurrentInstance().getExternalContext().redirect("form_duvida.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
