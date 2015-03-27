@@ -57,7 +57,7 @@
 						</f:facet>
 						<h:outputText value="#{duvida.descricao}" escape="false"/>
 					</rich:column>
-					<rich:column style="text-align: center">
+					<rich:column style="text-align: center" width="50">
 						<f:facet name="header">
 							<h:outputText value="Ações" />
 						</f:facet>
