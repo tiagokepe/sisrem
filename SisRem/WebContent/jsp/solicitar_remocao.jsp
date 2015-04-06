@@ -40,6 +40,10 @@
 						</f:facet>
 					</rich:messages>
 				</center>
+				<center>
+				<h:outputText value="Cadastro de Intenção de Remoção"
+				style="font-size: 22px;"></h:outputText>
+				</center>
 
 				<h:panelGrid columns="2" style="margin-left:0; line-height:20px;">
 					<h:outputText value="Siape:" />
@@ -110,11 +114,11 @@
 				<rich:dataTable id="listarIntencoes"
 					rendered="#{ not empty servidorController.intencaoList}"
 					value="#{servidorController.intencaoList}" var="list"
-					title="Lista de Intenções" width="1000px" columnClasses="center"
+					title="Lista de Intenções" width="1080px" columnClasses="center"
 					rows="10" reRender="ds">
 
 
-					<rich:column width="100px">
+					<rich:column width="120px">
 						<f:facet name="header">
 							<h:outputText value="Data Solicitação" />
 						</f:facet>
@@ -123,7 +127,7 @@
 						</h:outputText>
 					</rich:column>
 
-					<rich:column width="200px">
+					<rich:column width="230px">
 						<f:facet name="header">
 							<h:outputText value="Destino" />
 						</f:facet>
@@ -137,14 +141,14 @@
 						<h:outputText value="#{list.justificativa}" />
 					</rich:column>
 
-					<rich:column width="200px">
+					<rich:column width="140px">
 						<f:facet name="header">
 							<h:outputText value="Status" />
 						</f:facet>
 						<h:outputText value="#{list.status}" />
 					</rich:column>
 
-					<rich:column width="50px">
+					<rich:column width="30px">
 						<f:facet name="header">
 							<h:outputText value="Excluir" />
 						</f:facet>

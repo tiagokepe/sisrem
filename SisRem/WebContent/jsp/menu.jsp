@@ -7,9 +7,11 @@
 
 <a4j:form>
 
-	<h:outputText value="Bem vindo #{usuarioLogado.nome}" />
-	<br />
-	<br />
+	<h:panelGrid columns="2">
+		<h:graphicImage width="300" height="100"
+			value="../images/sisrem-logo.png" />
+	</h:panelGrid>
+	<h:outputText value="Bem vindo #{usuarioLogado.nome}" style="align: right;" />
 	<rich:toolBar>
 
 		<rich:dropDownMenu>
@@ -18,10 +20,12 @@
 					<h:outputText value="Remoção" />
 				</h:panelGroup>
 			</f:facet>
-			<rich:menuItem submitMode="ajax" value="Solicitar Remoção"
+			<rich:menuItem submitMode="ajax"
+				value="Cadastrar Intenção de Remoção"
 				action="#{servidorController.cadastrar}">
 			</rich:menuItem>
-			<rich:menuItem submitMode="ajax" value="Acompanhar Solicitação"
+			<rich:menuItem submitMode="ajax"
+				value="Acompanhar Solicitação de Remoção"
 				action="#{servidorController.listarIntencoesSolicitante}">
 			</rich:menuItem>
 
@@ -31,7 +35,7 @@
 			<f:facet name="label">
 				<h:panelGrid cellpadding="0" cellspacing="0" columns="2"
 					style="vertical-align:middle">
-					<h:outputText value="Ranquear" />
+					<h:outputText value="Operações Administrativas" />
 				</h:panelGrid>
 			</f:facet>
 			<rich:menuItem submitMode="ajax" value="Ranquear"
@@ -43,7 +47,7 @@
 			</rich:menuItem>
 		</rich:dropDownMenu>
 
-		<rich:dropDownMenu rendered="#{usuarioLogado.admin}">
+		<rich:dropDownMenu>
 
 			<f:facet name="label">
 				<h:panelGrid cellpadding="0" cellspacing="0" columns="2"
@@ -52,7 +56,8 @@
 				</h:panelGrid>
 			</f:facet>
 
-			<rich:menuItem value="Cadastrar" action="#{duvidaController.nova}">
+			<rich:menuItem value="Cadastrar" action="#{duvidaController.nova}"
+				rendered="#{usuarioLogado.admin}">
 			</rich:menuItem>
 			<rich:menuItem value="Listar" action="#{duvidaController.listar}">
 			</rich:menuItem>

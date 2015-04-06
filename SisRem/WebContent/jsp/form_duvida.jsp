@@ -18,13 +18,13 @@
 	<f:view>
 		<rich:panel>
 			<jsp:directive.include file="menu.jsp" />
-			<h:outputText value="Cadastro FAQ - Dúvidas Frequentes"
-				style="font-size: 22px;"></h:outputText>
+
 			<a4j:form id="form" style="margin-top: 20px;">
+
 				<h:panelGrid columns="2"
 					style="margin-left: 0px; padding-left: 0px;">
 					<h:inputHidden value="#{duvidaController.duvida.codigo}" />
-					<rich:messages id="messages" layout="list" 
+					<rich:messages id="messages" layout="list"
 						errorLabelClass="errorLabel" style="top:auto;"
 						infoLabelClass="infoLabel">
 						<f:facet name="infoMarker">
@@ -34,6 +34,10 @@
 							<h:graphicImage value="../images/error.gif" />
 						</f:facet>
 					</rich:messages>
+					<center>
+						<h:outputText value="Cadastro FAQ - Dúvidas Frequentes"
+							style="font-size: 22px;"></h:outputText>
+					</center>
 
 					<h:outputText value="Enunciado:" />
 					<h:inputText value="#{duvidaController.duvida.enunciado}"
@@ -51,11 +55,10 @@
 					</rich:editor>
 				</h:panelGrid>
 				<br />
- 				<h:commandButton value="Cancelar" 
+				<h:commandButton value="Cancelar"
 					style="padding:5px 10px 5px 10px;border-radius:5px; margin: 0px 5px 0px 65px"
-					onclick="window.history.back();  return false;"
-					/>
- 				<a4j:commandButton value="Salvar"
+					onclick="window.history.back();  return false;" />
+				<a4j:commandButton value="Salvar"
 					action="#{duvidaController.salvar}" reRender="form, messages">
 				</a4j:commandButton>
 			</a4j:form>
