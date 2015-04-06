@@ -15,38 +15,31 @@
 </head>
 
 <body>
-	<%/*
-		/*if (FacesContext.getCurrentInstance().getExternalContext()
-				.getSessionMap().get("Logado") == null) {
-			FacesContext.getCurrentInstance().getExternalContext()
-					.redirect("index.jsp");
-		}
-	*/
+	<%
+		/*
+		 /*if (FacesContext.getCurrentInstance().getExternalContext()
+		 .getSessionMap().get("Logado") == null) {
+		 FacesContext.getCurrentInstance().getExternalContext()
+		 .redirect("index.jsp");
+		 }
+		 */
 	%>
 	<f:view>
-	<rich:panel>
-	<jsp:directive.include file="menu.jsp" />
-		<center>
+		<rich:panel>
+			<jsp:directive.include file="menu.jsp" />
+			<center>
+				<a4j:loadScript src="../js/script.js" />
+			</center>
 			<a4j:loadScript src="../js/script.js" />
-		</center>
-		<a4j:loadScript src="../js/script.js" />
-		<a4j:form id="form">
-		
-			
-		<h:outputText value="Editais vigentes:" styleClass="negrito" /><br/><br/>
-		<rich:dataList var="editais" value="Editais" rows="10">
-            <h:outputText value="Edital ..."/><br/>
-            <h:outputText value="Ano: XXXX" styleClass="negrito"></h:outputText>
-            <h:outputText value=" Término: XX/XX/XXXX" styleClass="negrito"></h:outputText>
-        </rich:dataList>
-    
-				
+			<a4j:form id="form">
+
+
 				<center>
 					<h:graphicImage value="../images/assinatura.png"></h:graphicImage>
 				</center>
-		
-		</a4j:form>
-	</rich:panel>	
+
+			</a4j:form>
+		</rich:panel>
 	</f:view>
 </body>
 </html>

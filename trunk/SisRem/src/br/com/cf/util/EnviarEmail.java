@@ -37,12 +37,47 @@ public class EnviarEmail {
 		String remetente = "remocao@ifpr.edu.br";
 		String smtpHost = "smtp.gmail.com";
 		String porta = "465";
-		String senha = "";
+		String senha = "1fprr3m0c401515";
 
 		assunto = "Cadastro de Intenção de Remoção";
 		conteudoDoEmail = "Prezado (a) "+intencao.getNome();
 		conteudoDoEmail += "\n\n Você é o "+ intencao.getColocacao() +"º colocado para remoção para a unidade: "+intencao.getDestino();
 		conteudoDoEmail += "\n\n Assim que houver uma vaga a PROGEPE entrará em contato";
+		try {
+			@SuppressWarnings("unused")
+			EnviarEmail enviar = new EnviarEmail(remetente, intencao.getEmail(),
+					assunto, smtpHost, porta, remetente, senha, conteudoDoEmail);
+		} catch (Exception e) {
+		}
+	}
+	
+	public void enviarEmailDeferido(Intencao intencao) {
+		String remetente = "remocao@ifpr.edu.br";
+		String smtpHost = "smtp.gmail.com";
+		String porta = "465";
+		String senha = "1fprr3m0c401515";
+
+		assunto = "Cadastro de Intenção de Remoção";
+		conteudoDoEmail = "Prezado (a) "+intencao.getNome();
+		conteudoDoEmail += "\n\n Seu pedido de Remoção "+intencao.getDestino()+" foi DEFERIDO";
+		conteudoDoEmail += "\n\n Assim que houver uma vaga a PROGEPE entrará em contato";
+		try {
+			@SuppressWarnings("unused")
+			EnviarEmail enviar = new EnviarEmail(remetente, intencao.getEmail(),
+					assunto, smtpHost, porta, remetente, senha, conteudoDoEmail);
+		} catch (Exception e) {
+		}
+	}
+	
+	public void enviarEmailIndeferido(Intencao intencao) {
+		String remetente = "remocao@ifpr.edu.br";
+		String smtpHost = "smtp.gmail.com";
+		String porta = "465";
+		String senha = "1fprr3m0c401515";
+
+		assunto = "Cadastro de Intenção de Remoção";
+		conteudoDoEmail = "Prezado (a) "+intencao.getNome();
+		conteudoDoEmail += "\n\n Seu pedido de Remoção para "+intencao.getDestino()+" foi INDEFERIDO";
 		try {
 			@SuppressWarnings("unused")
 			EnviarEmail enviar = new EnviarEmail(remetente, intencao.getEmail(),
