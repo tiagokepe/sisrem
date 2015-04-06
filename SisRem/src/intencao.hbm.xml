@@ -21,6 +21,7 @@
 		<property name="email" column="int_email" />
 		<property name="cargo" column="int_cargo" />
 		<property name="nome" column="int_nome" />
+		<property name="status" column="int_status" />
 	</class>
 </hibernate-mapping>
 

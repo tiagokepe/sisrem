@@ -154,7 +154,7 @@
 								id="delete" />
 
 						</a4j:commandLink>
-						<rich:toolTip for="editar" value="Editar" />
+						<rich:toolTip for="excluir" value="Excluir" />
 					</rich:column>
 
 

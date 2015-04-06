@@ -19,27 +19,58 @@ public class IntencaoDAO extends DAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Intencao> buscarIntencao(Long siape){
+	public List<Intencao> buscarIntencao(Long siape) {
 		HibernateUtility.getSession().clear();
-		Query query = HibernateUtility.getSession().createQuery("from Intencao i where i.siape = :siape");
+		Query query = HibernateUtility.getSession().createQuery(
+				"from Intencao i where i.siape = :siape");
 		query.setParameter("siape", siape);
 		HibernateUtility.commitTransaction();
 		return (List<Intencao>) query.list();
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Intencao> buscarIntencaoPrimeiraFase(){
+	public List<Intencao> buscarIntencaoPrimeiraFase() {
 		HibernateUtility.getSession().clear();
-		Query query = HibernateUtility.getSession().createQuery("from Intencao i where i.fase = 1 order by i.destino, i.cargo, i.admissao, i.nascimento, i.dataInscricao");
+		Query query = HibernateUtility
+				.getSession()
+				.createQuery(
+						"from Intencao i where i.fase = 1 order by i.destino, i.cargo, i.admissao, i.nascimento, i.dataInscricao");
 		HibernateUtility.commitTransaction();
 		return (List<Intencao>) query.list();
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Intencao> buscarIntencaoSegundaFase(){
+	public List<Intencao> buscarIntencaoSegundaFase() {
 		HibernateUtility.getSession().clear();
-		Query query = HibernateUtility.getSession().createQuery("from Intencao i where i.fase = 2 order by i.destino, i.cargo, i.dataInscricao");
+		Query query = HibernateUtility
+				.getSession()
+				.createQuery(
+						"from Intencao i where i.fase = 2 order by i.destino, i.cargo, i.dataInscricao");
+		HibernateUtility.commitTransaction();
+		return (List<Intencao>) query.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Intencao> listarIntencaoAprovacao() {
+		HibernateUtility.getSession().clear();
+		Query query = HibernateUtility
+				.getSession()
+				.createQuery(
+						"from Intencao i order by i.fase, i.colocacao, i.destino, i.cargo, i.admissao, i.nascimento, i.dataInscricao");
+		HibernateUtility.commitTransaction();
+		return (List<Intencao>) query.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Intencao> listarIntencaoSolicitante(Intencao intencao) {
+		HibernateUtility.getSession().clear();
+		Query query = HibernateUtility
+				.getSession()
+				.createQuery(
+						"from Intencao i "
+								+ " where i.destino = :destino and i.cargo = :cargo order by i.fase, i.colocacao, i.destino, i.cargo, i.admissao, i.nascimento, i.dataInscricao");
+		query.setParameter("destino", intencao.getDestino());
+		query.setParameter("cargo", intencao.getCargo());
 		HibernateUtility.commitTransaction();
 		return (List<Intencao>) query.list();
 	}

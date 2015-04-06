@@ -21,13 +21,13 @@ import br.com.cf.entity.Intencao;
 import br.com.cf.entity.Servidor;
 import br.com.cf.entity.Unidade;
 import br.com.cf.entity.Usuario;
+import br.com.cf.util.EnviarEmail;
 
 public class ServidorController {
 
 	private Servidor servidor;
 	private List<Intencao> intencaoList = new ArrayList<Intencao>();
 	List<SelectItem> unidadeList;
-	List<SelectItem> areaList;
 	private Intencao intencao;
 
 	public List<Intencao> getIntencaoList() {
@@ -36,10 +36,6 @@ public class ServidorController {
 
 	public void setIntencaoList(List<Intencao> intencaoList) {
 		this.intencaoList = intencaoList;
-	}
-
-	public void setAreaList(List<SelectItem> areaList) {
-		this.areaList = areaList;
 	}
 
 	public Servidor getServidor() {
@@ -58,20 +54,32 @@ public class ServidorController {
 		this.unidadeList = unidadeList;
 	}
 
-	public List<SelectItem> getAreaList() {
-		return areaList;
-	}
-
-	public void seAreaList(List<SelectItem> areaList) {
-		this.areaList = areaList;
-	}
-
 	public Intencao getIntencao() {
 		return intencao;
 	}
 
 	public void setIntencao(Intencao intencao) {
 		this.intencao = intencao;
+	}
+
+	public void deferir() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		intencao = (Intencao) context.getExternalContext().getRequestMap()
+				.get("list");
+		intencao.setStatus("DEFERIDO");
+		DAO.getInstance().update(intencao);
+		EnviarEmail e = new EnviarEmail();
+		e.enviarEmailDeferido(intencao);
+	}
+
+	public void indeferir() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		intencao = (Intencao) context.getExternalContext().getRequestMap()
+				.get("list");
+		intencao.setStatus("INDEFERIDO");
+		DAO.getInstance().update(intencao);
+		EnviarEmail e = new EnviarEmail();
+		e.enviarEmailIndeferido(intencao);
 	}
 
 	public void salvar() throws IOException {
@@ -86,7 +94,8 @@ public class ServidorController {
 		intencaoList = new ArrayList<Intencao>();
 		buscarUsuarioLogado();
 		buscarUnidades();
-		intencaoList = IntencaoDAO.getInstance().buscarIntencao(servidor.getSiape());
+		intencaoList = IntencaoDAO.getInstance().buscarIntencao(
+				servidor.getSiape());
 		FacesContext.getCurrentInstance().getExternalContext()
 				.redirect("solicitar_remocao.jsp");
 	}
@@ -138,8 +147,7 @@ public class ServidorController {
 		}
 
 	}
-	
-	
+
 	public void excluirIntencao() throws Exception {
 		FacesContext context = FacesContext.getCurrentInstance();
 		intencao = (Intencao) context.getExternalContext().getRequestMap()
@@ -147,6 +155,26 @@ public class ServidorController {
 		intencaoList.remove(intencao);
 		DAO.getInstance().delete(intencao);
 		intencao = new Intencao();
+	}
+
+	public void listarIntencoes() throws IOException {
+		intencaoList = new ArrayList<Intencao>();
+		intencaoList = IntencaoDAO.getInstance().listarIntencaoAprovacao();
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("aprovarIntencao.jsp");
+	}
+	
+	public void listarIntencoesSolicitante() throws IOException, ParseException, SQLException {
+		intencaoList = new ArrayList<Intencao>();
+		buscarUsuarioLogado();
+		List<Intencao> intencaoAux = new ArrayList<Intencao>();
+		intencaoAux = IntencaoDAO.getInstance().buscarIntencao(
+				servidor.getSiape());
+		for(Intencao i : intencaoAux){
+			intencaoList.addAll(IntencaoDAO.getInstance().listarIntencaoSolicitante(i));
+			FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("acompanharIntencao.jsp");
+		}
 	}
 
 }
