@@ -121,7 +121,7 @@ public class ServidorController {
 			intencao.setCargo(servidor.getCargo());
 			intencao.setNome(servidor.getNome());
 			intencao.setFase(Constantes.FASE_VIGENTE);
-			
+			intencao.setStatus("ABERTO");
 			intencaoList.add(intencao);
 			DAO.getInstance().save(intencao);
 			intencao = new Intencao();

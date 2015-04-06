@@ -76,16 +76,15 @@
 						<f:selectItems value="#{servidorController.unidadeList}" />
 					</h:selectOneMenu>
 
-					<h:outputText value="Área:" style="font-weight: bold;"
+					<h:outputText value="Link para o curriculo lattes:"
+						style="font-weight: bold;"
 						rendered="#{servidorController.servidor.categoria == 'Docente'}" />
-					<h:selectOneMenu value="#{servidorController.intencao.area}"
-						required="true"
+					<h:inputText
 						rendered="#{servidorController.servidor.categoria == 'Docente'}"
-						requiredMessage="Selecione o Unidade de Destino!">
-						<f:selectItem itemLabel="SELECIONE" itemValue="" />
-						<f:selectItems value="#{servidorController.areaList}" />
-					</h:selectOneMenu>
-
+						value="#{servidorController.intencao.lattes}" size="50"
+						required="true"
+						requiredMessage="O campo Link para o curriculo lattes é obrigatório:">
+					</h:inputText>
 
 
 					<h:outputText value="Justificativa: " style="font-weight: bold;" />
@@ -131,19 +130,18 @@
 						<h:outputText value="#{list.destino}" />
 					</rich:column>
 
-					<rich:column width="200px"
-						rendered="#{servidorController.servidor.categoria == 'Docente'}">
-						<f:facet name="header">
-							<h:outputText value="Area" />
-						</f:facet>
-						<h:outputText value="#{list.area}" />
-					</rich:column>
-
 					<rich:column width="600px">
 						<f:facet name="header">
 							<h:outputText value="Justificativa" />
 						</f:facet>
 						<h:outputText value="#{list.justificativa}" />
+					</rich:column>
+
+					<rich:column width="200px">
+						<f:facet name="header">
+							<h:outputText value="Status" />
+						</f:facet>
+						<h:outputText value="#{list.status}" />
 					</rich:column>
 
 					<rich:column width="50px">
