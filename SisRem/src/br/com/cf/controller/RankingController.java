@@ -38,6 +38,7 @@ public class RankingController {
 					&& item.getCargo().equals(cargo)) {
 				contador++;
 				item.setColocacao(contador);
+				item.setStatus("Aguardando Vaga");
 				DAO.getInstance().update(item);
 				EnviarEmail e = new EnviarEmail();
 				e.enviarEmail(item);
@@ -47,6 +48,7 @@ public class RankingController {
 				contador = 0;
 				contador++;
 				item.setColocacao(contador);
+				item.setStatus("Aguardando Vaga");
 				DAO.getInstance().update(item);
 				EnviarEmail e = new EnviarEmail();
 				e.enviarEmail(item);
@@ -56,6 +58,7 @@ public class RankingController {
 				contador = 0;
 				contador++;
 				item.setColocacao(contador);
+				item.setStatus("Aguardando Vaga");
 				DAO.getInstance().update(item);
 				EnviarEmail e = new EnviarEmail();
 				e.enviarEmail(item);
@@ -67,6 +70,7 @@ public class RankingController {
 				contador = 0;
 				contador++;
 				item.setColocacao(contador);
+				item.setStatus("Aguardando Vaga");
 				DAO.getInstance().update(item);
 				EnviarEmail e = new EnviarEmail();
 				e.enviarEmail(item);
@@ -92,6 +96,7 @@ public class RankingController {
 					&& item.getCargo().equals(cargo)) {
 				contador++;
 				item.setColocacao(contador);
+				item.setStatus("Aguardando Vaga");
 				DAO.getInstance().update(item);
 				EnviarEmail e = new EnviarEmail();
 				e.enviarEmail(item);
@@ -101,6 +106,7 @@ public class RankingController {
 				contador = 0;
 				contador++;
 				item.setColocacao(contador);
+				item.setStatus("Aguardando Vaga");
 				DAO.getInstance().update(item);
 				EnviarEmail e = new EnviarEmail();
 				e.enviarEmail(item);
@@ -110,6 +116,7 @@ public class RankingController {
 				contador = 0;
 				contador++;
 				item.setColocacao(contador);
+				item.setStatus("Aguardando Vaga");
 				DAO.getInstance().update(item);
 				EnviarEmail e = new EnviarEmail();
 				e.enviarEmail(item);
@@ -119,6 +126,7 @@ public class RankingController {
 				contador = 0;
 				contador++;
 				item.setColocacao(contador);
+				item.setStatus("Aguardando Vaga");
 				DAO.getInstance().update(item);
 				EnviarEmail e = new EnviarEmail();
 				e.enviarEmail(item);

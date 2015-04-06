@@ -10,7 +10,7 @@
 		</id>
 		<property name="destino" column="int_destino" />
 		<property name="dataInscricao" column="int_dataInscricao" />
-		<property name="area" column="int_area" />
+		<property name="lattes" column="int_lattes" />
 		<property name="justificativa" column="int_justificativa" />
 		<property name="siape" column="int_siape" />
 		<property name="origem" column="int_origem"/>
