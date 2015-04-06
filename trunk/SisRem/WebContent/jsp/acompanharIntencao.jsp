@@ -40,12 +40,22 @@
 						</f:facet>
 					</rich:messages>
 				</center>
+				
+				<center>
+				<h:outputText value="Acompanhar Solicitação de Remoção"
+				style="font-size: 22px;"></h:outputText>
+				</center>
+				
+				<br />
+				<h:outputText value="Lista de acompanhamento de intenções cadastradas para os destinos escolhidos:"
+					style="font-weight: bold;"
+					rendered="#{ not empty servidorController.intencaoList}" />
 
 				<rich:dataTable id="listarIntencoes"
 					rendered="#{ not empty servidorController.intencaoList}"
 					value="#{servidorController.intencaoList}" var="list"
-					title="Lista de Intenções" width="800px" columnClasses="center"
-					rows="10" reRender="ds">
+					title="Lista de Intenções" width="1080px" columnClasses="center"
+					rows="1000" reRender="ds">
 
 
 					<rich:column width="100px" sortBy="#{list.destino}" filterBy="#{list.destino}" filterEvent="onkeyup" >
@@ -57,14 +67,14 @@
 					</rich:column>
 
 
-					<rich:column width="100px" >
+					<rich:column width="50px" >
 						<f:facet name="header">
 							<h:outputText value="Fase" />
 						</f:facet>
 						<h:outputText value="#{list.fase}" />
 					</rich:column>
 
-					<rich:column width="100px" >
+					<rich:column width="50px" >
 						<f:facet name="header">
 							<h:outputText value="Colocação" />
 						</f:facet>
@@ -72,7 +82,7 @@
 					</rich:column>
 					
 					
-					<rich:column width="100px" >
+					<rich:column width="200px" >
 						<f:facet name="header">
 							<h:outputText value="Nome" />
 						</f:facet>
@@ -80,7 +90,7 @@
 					</rich:column>
 					
 					
-					<rich:column width="200px" >
+					<rich:column width="100px" >
 						<f:facet name="header">
 							<h:outputText value="Status" />
 						</f:facet>

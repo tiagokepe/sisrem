@@ -41,14 +41,20 @@
 					</rich:messages>
 				</center>
 
+				<center>
+					<h:outputText value="Aprovar Intenção de Remoção"
+						style="font-size: 22px;align:center;"></h:outputText>
+				</center>
+
 				<rich:dataTable id="listarIntencoes"
 					rendered="#{ not empty servidorController.intencaoList}"
 					value="#{servidorController.intencaoList}" var="list"
-					title="Lista de Intenções" width="800px" columnClasses="center"
-					rows="10" reRender="ds">
+					title="Lista de Intenções" width="1080px" columnClasses="center"
+					rows="10000" reRender="ds">
 
 
-					<rich:column width="100px" sortBy="#{list.destino}" filterBy="#{list.destino}" filterEvent="onkeyup" >
+					<rich:column width="100px" filterBy="#{list.destino}"
+						filterEvent="onkeyup">
 						<f:facet name="header">
 							<h:outputText value="Unidade Destino" />
 						</f:facet>
@@ -56,49 +62,40 @@
 						</h:outputText>
 					</rich:column>
 
-					<rich:column width="100px" sortBy="#{list.cargo}" filterBy="#{list.cargo}" filterEvent="onkeyup">
+					<rich:column width="100px" filterBy="#{list.cargo}"
+						filterEvent="onkeyup">
 						<f:facet name="header">
 							<h:outputText value="Cargo" />
 						</f:facet>
 						<h:outputText value="#{list.cargo}" />
 					</rich:column>
 
-					<rich:column width="100px" sortBy="#{list.fase}" filterBy="#{list.fase}" filterEvent="onkeyup">
+					<rich:column width="100px">
 						<f:facet name="header">
 							<h:outputText value="Fase" />
 						</f:facet>
 						<h:outputText value="#{list.fase}" />
 					</rich:column>
 
-					<rich:column width="100px" sortBy="#{list.colocacao}" filterBy="#{list.colocacao}" filterEvent="onkeyup">
+					<rich:column width="50px">
 						<f:facet name="header">
 							<h:outputText value="Colocação" />
 						</f:facet>
 						<h:outputText value="#{list.colocacao}" />
 					</rich:column>
-					
-					<rich:column width="100px" sortBy="#{list.siape}" filterBy="#{list.siape}" filterEvent="onkeyup">
+
+					<rich:column width="500px">
 						<f:facet name="header">
-							<h:outputText value="Siape" />
+							<h:outputText value="Nome - Siape -  Origem - E-mail - Lattes(Docente)" />
 						</f:facet>
-						<h:outputText value="#{list.siape}" />
+						<h:outputText
+							value="#{list.nome} - #{list.siape} - #{list.origem} - #{list.email} - #{list.lattes}"   />
 					</rich:column>
-					
-					<rich:column width="100px" sortBy="#{list.nome}" filterBy="#{list.nome}" filterEvent="onkeyup">
-						<f:facet name="header">
-							<h:outputText value="Nome" />
-						</f:facet>
-						<h:outputText value="#{list.nome}" />
-					</rich:column>
-					
-					<rich:column width="100px" sortBy="#{list.origem}" filterBy="#{list.origem}" filterEvent="onkeyup">
-						<f:facet name="header">
-							<h:outputText value="Origem" />
-						</f:facet>
-						<h:outputText value="#{list.origem}" />
-					</rich:column>
-					
-					<rich:column width="200px" sortBy="#{list.status}" filterBy="#{list.status}" filterEvent="onkeyup">
+
+
+
+					<rich:column width="200px" filterBy="#{list.status}"
+						filterEvent="onkeyup">
 						<f:facet name="header">
 							<h:outputText value="Status" />
 						</f:facet>
@@ -109,10 +106,11 @@
 						<f:facet name="header">
 							<h:outputText value="Deferir" />
 						</f:facet>
-						<a4j:commandLink action="#{servidorController.deferir}" rendered="#{list.status eq 'Aguardando Vaga'}"
-							reRender="form" ajaxSingle="true">
-							<h:graphicImage value="../images/deferido.png" style="border:0" width="30" height="30"
-								id="deferir" />
+						<a4j:commandLink action="#{servidorController.deferir}"
+							rendered="#{list.status eq 'Aguardando Vaga'}" reRender="form"
+							ajaxSingle="true">
+							<h:graphicImage value="../images/deferido.png" style="border:0"
+								width="30" height="30" id="deferir" />
 						</a4j:commandLink>
 						<rich:toolTip for="Deferir" value="Deferir" />
 					</rich:column>
@@ -120,15 +118,14 @@
 						<f:facet name="header">
 							<h:outputText value="Indeferir" />
 						</f:facet>
-						<a4j:commandLink action="#{servidorController.indeferir}"  rendered="#{list.status eq 'Aguardando Vaga'}"
-							reRender="form" ajaxSingle="true">
-							<h:graphicImage value="../images/indeferido.png" style="border:0"  width="30" height="30"
-								id="indeferir" />
+						<a4j:commandLink action="#{servidorController.indeferir}"
+							rendered="#{list.status eq 'Aguardando Vaga'}" reRender="form"
+							ajaxSingle="true">
+							<h:graphicImage value="../images/indeferido.png" style="border:0"
+								width="30" height="30" id="indeferir" />
 						</a4j:commandLink>
 						<rich:toolTip for="Indeferir" value="Indeferir" />
 					</rich:column>
-
-
 				</rich:dataTable>
 
 

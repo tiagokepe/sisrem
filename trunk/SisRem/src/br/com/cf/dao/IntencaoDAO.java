@@ -56,7 +56,7 @@ public class IntencaoDAO extends DAO {
 		Query query = HibernateUtility
 				.getSession()
 				.createQuery(
-						"from Intencao i order by i.fase, i.colocacao, i.destino, i.cargo, i.admissao, i.nascimento, i.dataInscricao");
+						"from Intencao i order by i.destino,  i.cargo, i.fase, i.colocacao");
 		HibernateUtility.commitTransaction();
 		return (List<Intencao>) query.list();
 	}

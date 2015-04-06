@@ -39,7 +39,11 @@
 							<h:graphicImage value="../images/error.gif" />
 						</f:facet>
 					</rich:messages>
+					<center>
+						<h:outputText value="Realizar Ranqueamento"
+							style="font-size: 22px;"></h:outputText>
 
+					</center>
 
 					<h:panelGrid columns="1" style="margin-left:0; line-height:20px;">
 						<a4j:commandButton value="Ranquear Primeira Fase"

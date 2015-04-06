@@ -14,8 +14,7 @@
 	media="screen" />
 </head>
 <style>
-.rich-table
-{
+.rich-table {
 	margin-left: 0px;
 	margin-top: 15px;
 }
@@ -24,10 +23,7 @@
 	<f:view>
 		<rich:panel>
 			<jsp:directive.include file="menu.jsp" />
-			<h:outputText value="Dúvidas Frequentes - FAQ"
-				style="font-size: 22px; margin-bottom: 50px"></h:outputText>
-				<h:messages />
-				<a4j:form id="form">
+			<a4j:form id="form">
 				<center>
 					<rich:messages layout="list" errorLabelClass="errorLabel"
 						style="top:auto;" infoLabelClass="infoLabel">
@@ -39,13 +35,20 @@
 						</f:facet>
 					</rich:messages>
 				</center>
-			
-				<rich:dataTable id="listaDuvidas" value="#{duvidaController.listaDuvidas}" var="duvida"
+				<center>
+					<h:outputText value="Dúvidas Frequentes - FAQ"
+						style="font-size: 22px; margin-bottom: 50px"></h:outputText>
+					<h:messages />
+				</center>
+				<br />
+				<h:outputText value="Lista de dúvidas frequentes:"
+					style="font-weight: bold;"
+					rendered="#{ not empty servidorController.intencaoList}" />
+				<rich:dataTable id="listaDuvidas"
+					value="#{duvidaController.listaDuvidas}" var="duvida"
 					width="1080px" columnClasses="center" rows="15" reRender="ds">
-					<f:facet name="header">
-						<h:outputText value="Dúvidas Frequentes - FAQ" />
-					</f:facet>
-					<rich:column style="text-align: center" sortBy="#{duvida.enunciado}">
+					<rich:column style="text-align: center"
+						sortBy="#{duvida.enunciado}">
 						<f:facet name="header">
 							<h:outputText value="Enunciado" />
 						</f:facet>
@@ -55,19 +58,22 @@
 						<f:facet name="header">
 							<h:outputText value="Descrição" />
 						</f:facet>
-						<h:outputText value="#{duvida.descricao}" escape="false"/>
+						<h:outputText value="#{duvida.descricao}" escape="false" />
 					</rich:column>
-					<rich:column style="text-align: center" width="50">
+					<rich:column style="text-align: center" width="50"
+						rendered="#{usuarioLogado.admin}">
 						<f:facet name="header">
 							<h:outputText value="Ações" />
 						</f:facet>
-						<a4j:commandLink action="#{duvidaController.editar}" title="Editar" reRender="form, messages, listaDuvidas">
+						<a4j:commandLink action="#{duvidaController.editar}"
+							title="Editar" reRender="form, messages, listaDuvidas">
 							<h:graphicImage value="../images/edit.gif" style="border:0"
 								id="edit" alt="Editar" />
 						</a4j:commandLink>
-						<a4j:commandLink action="#{duvidaController.excluir}" title="Excluir" reRender="form, messages, listaDuvidas">
-							<h:graphicImage value="../images/delete.gif" style="border:0; margin-left: 10px;"
-								id="delete" alt="Exlcuir" />
+						<a4j:commandLink action="#{duvidaController.excluir}"
+							title="Excluir" reRender="form, messages, listaDuvidas">
+							<h:graphicImage value="../images/delete.gif"
+								style="border:0; margin-left: 10px;" id="delete" alt="Exlcuir" />
 						</a4j:commandLink>
 					</rich:column>
 					<f:facet name="footer">
